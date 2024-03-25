@@ -11,6 +11,8 @@ I would like to introduce you to my personal project Ubiquitous Cube Game. This 
 
 So far this has been tested on a MacBook Pro with a M2 Pro chip and a desktop PC with a Ryzen 7 2700X and a RX Vega 56 running Windows 11. The game uses modern OpenGL instead of OpenGL 1.0 features that have been deprecated for a long time (since 2008). While OpenGL MAY be on its way out with Vulkan becoming more mainstream, I wanted to able to work on this on my MacBook too. 
 
+You can find the project here: [Link to ubiquitous-cube-game](https://github.com/Xata/ubiquitous-cube-game)
+
 ## Goals with this project
 
 My goal is to create a playable game this year. Eventually I want to add networking features to this game so that a friend can join and explore with you. The goal of this is not to create a commercial title. Just something that demonstrates my Python and OpenGL skills. So far I've taken a basic voxel game engine and made it more game-like. 
