@@ -12,7 +12,6 @@ This portfolio website serves as a central hub for showcasing my projects, exper
 
 - Blog: Posts I have written. These include guides about technologies I use.
 - Resume: Details about my professional experience, including roles and responsibilities.
-- Contact: Information on how to get in touch with me.
 
 ### Project Info
 
