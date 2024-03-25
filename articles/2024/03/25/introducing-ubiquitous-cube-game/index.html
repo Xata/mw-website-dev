@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Introducing Ubiquitous Cube Game - Maciej's Dev Blog</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/articles/2024/03/25/introducing-ubiquitous-cube-game/">
+
+        <meta name="author" content="Maciej" />
+        <meta name="keywords" content="markdown,blog,opengl,python,moderngl,cube,ubiquitous-cube-game" />
+        <meta name="description" content="Introduction I would like to introduce you to my personal project Ubiquitous Cube Game. This game is a Minecraft clone developed in Python using the ModernGL library to create voxels in OpenGL. The goal with this game is to achieve a personal deadline of mine. I&#39;ve had multiple attempts over …" />
+
+        <meta property="og:site_name" content="Maciej's Dev Blog" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Introducing Ubiquitous Cube Game"/>
+        <meta property="og:url" content="/articles/2024/03/25/introducing-ubiquitous-cube-game/"/>
+        <meta property="og:description" content="Introduction I would like to introduce you to my personal project Ubiquitous Cube Game. This game is a Minecraft clone developed in Python using the ModernGL library to create voxels in OpenGL. The goal with this game is to achieve a personal deadline of mine. I&#39;ve had multiple attempts over …"/>
+        <meta property="article:published_time" content="2024-03-25" />
+            <meta property="article:section" content="blog" />
+            <meta property="article:tag" content="markdown" />
+            <meta property="article:tag" content="blog" />
+            <meta property="article:tag" content="opengl" />
+            <meta property="article:tag" content="python" />
+            <meta property="article:tag" content="moderngl" />
+            <meta property="article:tag" content="cube" />
+            <meta property="article:tag" content="ubiquitous-cube-game" />
+            <meta property="article:author" content="Maciej" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.simplex.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+Maciej's Dev Blog            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about/">
+                             About
+                          </a></li>
+                         <li><a href="/pages/resume/">
+                             Resume
+                          </a></li>
+                        <li class="active">
+                            <a href="/category/blog">Blog</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/articles/2024/03/25/introducing-ubiquitous-cube-game/"
+                       rel="bookmark"
+                       title="Permalink to Introducing Ubiquitous Cube Game">
+                        Introducing Ubiquitous Cube Game
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2024-03-25T10:43:00-06:00"> Mon 25 March 2024</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/markdown">markdown</a>
+        /
+	<a href="/tag/blog">blog</a>
+        /
+	<a href="/tag/opengl">opengl</a>
+        /
+	<a href="/tag/python">python</a>
+        /
+	<a href="/tag/moderngl">moderngl</a>
+        /
+	<a href="/tag/cube">cube</a>
+        /
+	<a href="/tag/ubiquitous-cube-game">ubiquitous-cube-game</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p><img alt="Ubiquitous Cube Game icon" src="/img/cube-game-icon.png"></p>
+<h2>Introduction</h2>
+<p>I would like to introduce you to my personal project Ubiquitous Cube Game. This game is a Minecraft clone developed in Python using the ModernGL library to create voxels in OpenGL. The goal with this game is to achieve a personal deadline of mine. I've had multiple attempts over the years but never that have gotten this close before. I'm pretty proud of the work done to create what I have so far. </p>
+<p>So far this has been tested on a MacBook Pro with a M2 Pro chip and a desktop PC with a Ryzen 7 2700X and a RX Vega 56 running Windows 11. The game uses modern OpenGL instead of OpenGL 1.0 features that have been deprecated for a long time (since 2008). While OpenGL MAY be on its way out with Vulkan becoming more mainstream, I wanted to able to work on this on my MacBook too. </p>
+<p>You can find the project here: <a href="https://github.com/Xata/ubiquitous-cube-game">Link to ubiquitous-cube-game</a></p>
+<h2>Goals with this project</h2>
+<p>My goal is to create a playable game this year. Eventually I want to add networking features to this game so that a friend can join and explore with you. The goal of this is not to create a commercial title. Just something that demonstrates my Python and OpenGL skills. So far I've taken a basic voxel game engine and made it more game-like. </p>
+<h2>About the game</h2>
+<p>I did not want to reinvent the wheel with this game. My original interation of the voxel engine was slow and was using OpenGL 1.0 features that have long since been deprecated. My launching off point for a more optimized voxel engine was <a href="https://www.youtube.com/watch?v=Ab8TOSFfNp4">Coder Space's Creating a Voxel Engine Tutorial</a>. This tutorial was an excellent guide to creating a more optimized voxel game engine. The OpenGL 3.0+ features helped me a ton too and the explainations helped with wrapping my head around how something was drawn in more modern OpenGL. </p>
+<p>In OpenGL 1.0 you'd define a cube doing something like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">GLfloat</span><span class="w"> </span><span class="n">g_vertex_buffer_data</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">1.0f</span><span class="p">,</span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>Then you would draw it like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">glDrawArrays</span><span class="p">(</span><span class="n">GL_TRIANGLES</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="o">*</span><span class="mi">3</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Now in more modern OpenGL we create a cube/voxel by first defining our vertices and indices:</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">vertices</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+    <span class="p">]</span>
+</code></pre></div>
+
+<p>Then we return it as a NumPy array for that sweet sweet resource saving. To draw the cube we then have to take our vertex data in the form of a NumPy array and then create a Vertex Array Object and pass that into a vertex buffer object so that the GPU can render this in our window later. </p>
+<p>Anyway, that is enough ranting about OpenGL on my end. I just found the process so interesting when compared to the old ways of doing things on the GPU. Although the OpenGL 1.0 stuff would be great to know if one was to develop a game for a legacy OS like Windows 98.</p>
+<h3>More about the game</h3>
+<p>The game engine uses the tools from the OpenSimplex library to generate noise and then applies it the rendered chunks. 
+Below is a screenshot of the world being rendered:
+<img alt="Ubiquitous Cube Game world generation" src="/img/cube-game-screenshot-00.jpg"></p>
+<p>Currently, everytime you load into the game you will get an entirely brandnew world that is generated. The seed gets printed to the Python console. Right now you can fly around and place certain blocks. I have several blocks that can be placed as of writing:</p>
+<p><img alt="Ubiquitous Cube Game blocks" src="/img/cube-game-screenshot-01.jpg"></p>
+<p>Here I have created a basic house using the blocks I've added into the game:</p>
+<p><img alt="Ubiquitous Cube Game blocks" src="/img/cube-game-screenshot-03.jpg"></p>
+<h4>Table of Current blocks</h4>
+<table>
+<thead>
+<tr>
+<th>Block name</th>
+<th>Block ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VOID</td>
+<td>0</td>
+</tr>
+<tr>
+<td>SAND</td>
+<td>1</td>
+</tr>
+<tr>
+<td>GRASS</td>
+<td>2</td>
+</tr>
+<tr>
+<td>DIRT</td>
+<td>3</td>
+</tr>
+<tr>
+<td>STONE</td>
+<td>4</td>
+</tr>
+<tr>
+<td>SNOW</td>
+<td>5</td>
+</tr>
+<tr>
+<td>LEAVES</td>
+<td>6</td>
+</tr>
+<tr>
+<td>WOOD</td>
+<td>7</td>
+</tr>
+<tr>
+<td>COAL_ORE</td>
+<td>8</td>
+</tr>
+<tr>
+<td>RAW_COAL_BLOCK</td>
+<td>9</td>
+</tr>
+<tr>
+<td>COPPER_ORE</td>
+<td>10</td>
+</tr>
+<tr>
+<td>RAW_COPPER_BLOCK</td>
+<td>11</td>
+</tr>
+<tr>
+<td>TIN_ORE</td>
+<td>12</td>
+</tr>
+<tr>
+<td>RAW_TIN_BLOCK</td>
+<td>13</td>
+</tr>
+<tr>
+<td>WOOD_BLOCK</td>
+<td>14</td>
+</tr>
+<tr>
+<td>BASIC_CRAFTING_TABLE</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<h2>Next steps</h2>
+<p>The next steps for me will be adding an entity system so that the player can collect blocks that they mine. I'm changing the code so that it the destroyed blocks will drop an entity on the ground, just like in Minecraft that the player can pickup. Also to add is to track how many blocks that the player has collected. Adding a menu is also on the menu. Get it? (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</p>
+<p>Anyway, I'm really excited to be working on this and I have several resources on the way to help me with my shaders too.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://github.com/Xata"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+    <li class="list-group-item"><a href="https://www.linkedin.com/in/maciejwal/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2024 Maciej Wal
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>
