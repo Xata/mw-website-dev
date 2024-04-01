@@ -4,7 +4,6 @@ Date: 2024-04-01 12:37
 Category: blog
 Tags: markdown, blog, isc2, cybersecurity, certification, IT
 
-## Got Another Certification
 
 On March 31, 2024, I was able to get my ISC2 Certified in Cybersecurity certification. The test was more challenging 
 than expected, but I think that my experience helped a lot. Time to move on to the next certification. 
