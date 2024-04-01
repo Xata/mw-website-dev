@@ -96,6 +96,11 @@ Aurora, CO | January 2019 - September 2020
 
 ## Certifications
 
+#### [Certified in Cybersecurity](https://www.credly.com/badges/69e6d826-e9e6-4432-b749-00de03dfe3f3)
+- ISC2
+- Issued: March 2024
+- Expires: March 2027
+
 #### [Dynatrace Associate](https://www.credly.com/badges/556ceabb-2785-43df-a9e6-61cb521d37a8/linked_in_profile)
 - Dynatrace
 - Issued: October 2023
