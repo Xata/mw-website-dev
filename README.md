@@ -23,3 +23,41 @@ The following was used to create the website:
 [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](https://www.python.org/)
 [![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)](https://daringfireball.net/projects/markdown/)
 ![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)
+
+### Setting up the project 
+
+To run the website. Follow the steps below:
+
+⚠️ On Windows 10/11 you may need to execute the following command first:
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+
+Now create a new virtual environment for Python:
+```powershell
+python -m venv .venv
+```
+
+Navigate to the Scripts directory:
+```powershell
+cd .venv\Scripts\
+```
+
+On Windows, executing the following script to activate the virtual environment:
+```powerhsell
+.\Activate.ps1
+```
+
+Now navigate back to the root directory and run the following command:
+```powershell
+pip install -r requirements.txt
+```
+
+There you go! You should now be able to preview the project with Pelican by running this command:
+```python
+pelican content
+pelican --listen
+```
+
+
+
