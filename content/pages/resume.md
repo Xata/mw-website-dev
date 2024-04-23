@@ -10,10 +10,10 @@ Welcome to my resume page. Below, you'll find my skills, educational institution
 
 ## Skills
 
-```Programming```
+```Software Development ```
+```Agile Methodology```
 ```Databases```
 ```DevOps```
-```System Administration```
 ```Infrastructure Deployment```
 ```Networking```
 
