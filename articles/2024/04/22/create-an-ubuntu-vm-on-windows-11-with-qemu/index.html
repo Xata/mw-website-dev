@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Create an Ubuntu VM on Windows 11 with QEMU - Maciej's Dev Blog</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/articles/2024/04/22/create-an-ubuntu-vm-on-windows-11-with-qemu/">
+
+        <meta name="author" content="Maciej" />
+        <meta name="keywords" content="blog,qemu,virtualization,tutorial" />
+        <meta name="description" content="A quick guide to QEMU on Windows 11" />
+
+        <meta property="og:site_name" content="Maciej's Dev Blog" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Create an Ubuntu VM on Windows 11 with QEMU"/>
+        <meta property="og:url" content="/articles/2024/04/22/create-an-ubuntu-vm-on-windows-11-with-qemu/"/>
+        <meta property="og:description" content="A quick guide to QEMU on Windows 11"/>
+        <meta property="article:published_time" content="2024-04-22" />
+            <meta property="article:section" content="blog" />
+            <meta property="article:tag" content="blog" />
+            <meta property="article:tag" content="qemu" />
+            <meta property="article:tag" content="virtualization" />
+            <meta property="article:tag" content="tutorial" />
+            <meta property="article:author" content="Maciej" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.simplex.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+Maciej's Dev Blog            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about/">
+                             About
+                          </a></li>
+                         <li><a href="/pages/resume/">
+                             Resume
+                          </a></li>
+                        <li class="active">
+                            <a href="/category/blog">Blog</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/articles/2024/04/22/create-an-ubuntu-vm-on-windows-11-with-qemu/"
+                       rel="bookmark"
+                       title="Permalink to Create an Ubuntu VM on Windows 11 with QEMU">
+                        Create an Ubuntu VM on Windows 11 with QEMU
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2024-04-22T13:47:00-06:00"> Mon 22 April 2024</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/blog">blog</a>
+        /
+	<a href="/tag/qemu">qemu</a>
+        /
+	<a href="/tag/virtualization">virtualization</a>
+        /
+	<a href="/tag/tutorial">tutorial</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h1>Basic QEMU on Windows 11</h1>
+<p>I'm excited to share a quick guide on how to run QEMU on Windows 11. QEMU is a powerful open-source virtual machine monitor and emulator that allows you to run a virtualized guest operating system on your host machine. In the past I've used Oracle's Virtual Box and Microsoft Hyper-V to virtualize guests on my desktop computer. However, QEMU is a much more powerful tool. I've been pushing the people around me to be more comfortable with using the command-line on their machines. One of the barriers that people see with QEMU is that it is completely command-line based. There is no "out-of-the-box" GUI for QEMU on Windows, although 3rd party wrappers do exist out there. </p>
+<p>In this guide we will be quickly setting up QEMU on a Windows 11 system and then running an Ubuntu virtual machine from the command line. </p>
+<h2>The Guide</h2>
+<h3>Download and install QEMU</h3>
+<p>Download the required software. This guide does not cover compiling the source for QEMU on Windows 11. You can find the binaries and installers from Stegan Weil here:
+- https://qemu.weilnetz.de/w64/</p>
+<p>Follow the on-screen instructions to complete the installation process. By default, QEMU will be installed in the Program Files directory on your Windows 11 system. You will end up with a directory that looks like this:
+<img alt="QEMU directory on Windows 11" src="/img/qemu_guide_01.jpg"></p>
+<p>Yikes! So what do we do with all of this? If you have Windows Terminal installed on your computer, you'll be able to right-click and open the directory in a new Terminal window. </p>
+<h3>Create the virtual machine</h3>
+<h4>Download Ubuntu Server</h4>
+<p>Now make sure to have a ISO image of Ubuntu Server 22.04.4 LTS. In this guide we are going to be spinning this up from the command-line. You can download the ISO image from here:
+- https://ubuntu.com/download/server/thank-you?version=22.04.4&amp;architecture=amd64</p>
+<h4>Create a virtual disk</h4>
+<p>Once that is installed in your terminal window, run the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="p">.\</span><span class="n">qemu-img</span><span class="p">.</span><span class="n">exe</span> <span class="n">create</span> <span class="o">-f</span> <span class="n">qcow2</span> <span class="n">ubuntu-test</span><span class="p">.</span><span class="n">img</span> <span class="n">32G</span>
+</code></pre></div>
+
+<p>Here is a quick breakdown of what we just did:</p>
+<div class="highlight"><pre><span></span><code><span class="p">.\</span><span class="n">qemu-img</span><span class="p">.</span><span class="n">exe</span>
+</code></pre></div>
+
+<ul>
+<li>This is the command-line tool provided by QEMU for creating, converting, and managing disk images.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">create</span> <span class="o">-f</span> <span class="n">qcow2</span>
+</code></pre></div>
+
+<ul>
+<li>This is the subcommand of qemu-img used to create a new disk image. This option specifies the format of the disk image to be created. We've set it to "qcow2", which stands for QEMU Copy-On-Write version 2. QCOW2 is a disk image format that supports advanced features like snapshots and encryption.</li>
+<li>You can find more information on the QCOW2 format here: https://github.com/zchee/go-qcow2/blob/master/docs/specification.md<ul>
+<li>Note: The original documentation seems to be removed from GitHub. </li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">ubuntu-test</span><span class="p">.</span><span class="n">img</span>
+</code></pre></div>
+
+<ul>
+<li>This is the name of the image.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">32G</span>
+</code></pre></div>
+
+<ul>
+<li>This is the size of the image.</li>
+</ul>
+<h4>Create the virtual machine and install Ubuntu</h4>
+<p>Now with the disk image created. It we can install the operating system. In the same directory in the terminal window, run the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="p">.\</span><span class="n">qemu-system-x86_64</span><span class="p">.</span><span class="n">exe</span> <span class="n">-boot</span> <span class="n">d</span> <span class="n">-cdrom</span> <span class="s2">&quot;C:\Users\squishy\Desktop\ubuntu-22.04.4-live-server-amd64.iso&quot;</span> <span class="n">-drive</span> <span class="n">file</span><span class="p">=</span><span class="n">ubuntu-test</span><span class="p">.</span><span class="n">img</span><span class="p">,</span><span class="n">format</span><span class="p">=</span><span class="n">qcow2</span> <span class="n">-m</span> <span class="n">4G</span> <span class="n">-display</span> <span class="n">sdl</span> <span class="n">-accel</span> <span class="n">tcg</span> <span class="n">-net</span> <span class="n">nic</span><span class="p">,</span><span class="n">model</span><span class="p">=</span><span class="n">virtio</span> <span class="n">-net</span> <span class="n">user</span> <span class="n">-vga</span> <span class="n">std</span>
+</code></pre></div>
+
+<p>You'll get a window that looks like this:
+<img alt="QEMU SDL Window" src="/img/qemu_guide_02.jpg"></p>
+<p>While Ubuntu is installing, your screen will look like this:
+<img alt="QEMU SDL Window 2" src="/img/qemu_guide_03.jpg"></p>
+<p>Wait for the machine to boot. We'll then configure the Ubuntu VM. When you're all done, your screen should look like the following:
+<img alt="QEMU SDL Window 2" src="/img/qemu_guide_04.jpg"></p>
+<h5>Explaining the command</h5>
+<div class="highlight"><pre><span></span><code><span class="p">.\</span><span class="n">qemu-system-x86_64</span><span class="p">.</span><span class="n">exe</span> <span class="n">-boot</span> <span class="n">d</span> <span class="n">-drive</span> <span class="n">file</span><span class="p">=</span><span class="n">ubuntu-test</span><span class="p">.</span><span class="n">img</span><span class="p">,</span><span class="n">format</span><span class="p">=</span><span class="n">qcow2</span> <span class="n">-m</span> <span class="n">4G</span> <span class="n">-display</span> <span class="n">sdl</span> <span class="n">-accel</span> <span class="n">tcg</span> <span class="n">-net</span> <span class="n">nic</span><span class="p">,</span><span class="n">model</span><span class="p">=</span><span class="n">virtio</span> <span class="n">-net</span> <span class="n">user</span> <span class="n">-vga</span> <span class="n">std</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">-boot</span> <span class="n">d</span>
+</code></pre></div>
+
+<ul>
+<li>This flag specifies that the VM should boot from the first bootable device.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">-drive</span> <span class="n">file</span><span class="p">=</span><span class="n">ubuntu-test</span><span class="p">.</span><span class="n">img</span><span class="p">,</span><span class="n">format</span><span class="p">=</span><span class="n">qcow2</span>
+</code></pre></div>
+
+<ul>
+<li>This option adds a drive to the virtual machine. Here, file=ubuntu-test.img specifies the disk image file (ubuntu-test.img), and format=qcow2 specifies the format of the disk image.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">-m</span> <span class="n">4G</span>
+</code></pre></div>
+
+<ul>
+<li>This sets the amount of memory (RAM) allocated to the virtual machine to 4 GB.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">-display</span> <span class="n">sdl</span>
+</code></pre></div>
+
+<ul>
+<li>This sets the display to use the Simple DirectMedia Layer (SDL) for output.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">-net</span> <span class="n">nic</span><span class="p">,</span><span class="n">model</span><span class="p">=</span><span class="n">virtio</span> <span class="n">-net</span> <span class="n">user</span>
+</code></pre></div>
+
+<ul>
+<li>These options set up networking for the virtual machine.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">-vga</span> <span class="n">std</span>
+</code></pre></div>
+
+<ul>
+<li>This sets the type of VGA adapter to use.</li>
+</ul>
+<h4>Run virtual machine</h4>
+<p>Once Ubuntu server was installed, you'll be able to run your virtual machine with this command:</p>
+<div class="highlight"><pre><span></span><code><span class="p">.\</span><span class="n">qemu-system-x86_64</span><span class="p">.</span><span class="n">exe</span> <span class="n">-boot</span> <span class="n">d</span> <span class="n">-drive</span> <span class="n">file</span><span class="p">=</span><span class="n">ubuntu-test</span><span class="p">.</span><span class="n">img</span><span class="p">,</span><span class="n">format</span><span class="p">=</span><span class="n">qcow2</span> <span class="n">-m</span> <span class="n">4G</span> <span class="n">-display</span> <span class="n">sdl</span> <span class="n">-accel</span> <span class="n">tcg</span> <span class="n">-net</span> <span class="n">nic</span><span class="p">,</span><span class="n">model</span><span class="p">=</span><span class="n">virtio</span> <span class="n">-net</span> <span class="n">user</span> <span class="n">-vga</span> <span class="n">std</span>
+</code></pre></div>
+
+<p>You can also create a shortcut to this using the following settings under Target:</p>
+<div class="highlight"><pre><span></span><code>&quot;C:\Program Files\qemu\qemu-system-x86_64.exe -boot d -drive file=ubuntu-test.img,format=qcow2 -m 4G -display sdl -accel tcg -net nic,model=virtio -net user -vga std&quot;
+</code></pre></div>
+
+<p><img alt="Shortcut settings" src="/img/qemu_guide_05.jpg"></p>
+<p>Note: Be sure to run the shortcut as admin! </p>
+<p>Here is the finished Ubuntu VM running on QEMU:
+<img alt="Finished product" src="/img/qemu_guide_neofetch.jpg"></p>
+<h2>Thoughts</h2>
+<p>Thank you for checking out my guide on creating a simple Ubuntu VM using QEMU on Windows 11. QEMU's built-in accelerator is really slow. Attempting to enable Windows Hyper-V support seems to be broken at the moment with the current binaries and Intel has dropped support for HAXM. This makes running x86-64 based machines with QEMU really slow at the moment. </p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://github.com/Xata"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+    <li class="list-group-item"><a href="https://www.linkedin.com/in/maciejwal/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2024 Maciej Wal
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>
