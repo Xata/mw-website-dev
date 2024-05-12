@@ -57,18 +57,20 @@ sudo softwareupdate --install-rosetta
 ## Cloning the repo
 We need to clone a specific version of O3DE to get it to work on macOS. I had issues with just cloning the most up to date repo.
 These are the steps I did:
-1. Clone the initial repository:
-   ```zsh
-   git clone https://github.com/o3de/o3de.git
-   ```
-2. The cd into the directory:
-   ```zsh
-   cd o3de
-   ```
-3. Now revert to a specific version:
-   ```zsh
-   git reset 4ac8adf --hard
-   ```
+Clone the initial repository:
+```zsh
+git clone https://github.com/o3de/o3de.git
+```
+
+Move into the directory:
+```zsh
+cd o3de
+```
+
+Now revert to a specific version:
+```zsh
+git reset 4ac8adf --hard
+```
 
 ⚠️ If you try to use the latest version, you'll end up with this error:
 ```zsh
