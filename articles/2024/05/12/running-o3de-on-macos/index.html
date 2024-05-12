@@ -157,15 +157,18 @@ sudo<span class="w"> </span>git<span class="w"> </span>lfs<span class="w"> </spa
 <h2>Cloning the repo</h2>
 <p>We need to clone a specific version of O3DE to get it to work on macOS. I had issues with just cloning the most up to date repo.
 These are the steps I did:
-1. Clone the initial repository:
-   <code>zsh
-   git clone https://github.com/o3de/o3de.git</code>
-2. The cd into the directory:
-   <code>zsh
-   cd o3de</code>
-3. Now revert to a specific version:
-   <code>zsh
-   git reset 4ac8adf --hard</code></p>
+Clone the initial repository:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/o3de/o3de.git
+</code></pre></div>
+
+<p>Move into the directory:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>o3de
+</code></pre></div>
+
+<p>Now revert to a specific version:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>4ac8adf<span class="w"> </span>--hard
+</code></pre></div>
+
 <p>⚠️ If you try to use the latest version, you'll end up with this error:</p>
 <div class="highlight"><pre><span></span><code>CMake<span class="w"> </span>Error<span class="w"> </span>at<span class="w"> </span>Code/LauncherUnified/Platform/Mac/launcher_project_mac.cmake:26<span class="w"> </span><span class="o">(</span>message<span class="o">)</span>:
 <span class="w">  </span>Missing<span class="w"> </span><span class="s1">&#39;Resources&#39;</span><span class="w"> </span>folder.<span class="w">  </span>Candidate<span class="w"> </span>paths<span class="w"> </span>tried<span class="w"> </span>were:
