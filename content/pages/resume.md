@@ -44,28 +44,43 @@ Denver, CO | Graduated in 2016
 
 ## Experience
 
-#### Tier 2 Team Lead | Project PISCES
-Denver, CO | September 2023 - Present
+#### Contractor | MSU Denver - The Cybersecurity Center
+Denver, CO | May 2024 - Present
 
-- Supervising over 50 students across 3 different organizations as they develop their skills as entry-level analysts serving 5 rural communities across Colorado.
-- Training new student cohorts 2x a month in identifying and documenting possible threats in customer environments.
-- Led a project to enhance infrastructure to accommodate new student cohorts, orchestrating the transition from Elastic Stack to OpenSearch. Implemented FreeIPA, Kerberos, and Zammad.
+- Developed a new proprietary platform for students to analyze cybersecurity events and logs, enhancing the educational experience and practical skills of participants.
+- Transitioned the project from Azure to Linode, resulting in significant cost savings of approximately $1,000 per month in cloud fees, while ensuring optimal performance and reliability.
+- Designed and constructed physical collectors using readily available components, deploying them to customer sites to gather cybersecurity data.
+- Implemented deep-packet inspection capabilities, enabling students to perform in-depth analysis of network traffic and security threats
+- Created a new process for students to log and track cybersecurity incidents and requests by introducing Zammad as a ticketing platform.
+- Modified Zammad's Ruby source code to tailor it to the specific needs of the organization, enhancing its functionality for students.
+- Established a robust CI/CD pipeline to automate the deployment and testing of Zammad updates and customizations, ensuring efficiency and reliability in software development and deployment processes.
+- Configured DNS and set up a Wireguard endpoint to establish secure communication channels.
+
+#### Tier 2 Team Lead | MSU Denver - Project PISCES
+Denver, CO | September 2023 - May 2024
+
+- Supervised and mentored a team of 64 students from 5 different higher education organizations, fostering a collaborative and supportive work environment.
+- Conducted bi-monthly training sessions for student cohorts, equipping them with basic cybersecurity skills and a primer on reading logs and alerts in Elasticsearch.
+- Provided training on utilizing Elasticsearch, Kibana, and the Mantis bug tracker.
+- Implemented a rigorous ticket review process, ensuring the accuracy and completeness of tickets submitted by the team before escalation to Tier 3 for final resolution.
+- Managed and processed a high volume of tickets, averaging 300 tickets per month, to address cybersecurity events across the State of Colorado.
 
 #### Technical Product Specialist | Dynatrace
 Denver, CO | November 2023 - December 2023
 
-- Managed up to 6 concurrent support chats, providing timely assistance to customers with product-related queries.
-- Collaborated with customers to craft compelling visualizations for data, enhancing their ability to derive actionable insights.
-- Coached customers on optimal product usage, offering guidance and troubleshooting to ensure a positive user experience.
-- Performed customer environment health checks, evaluated product installations, deployments, configurations, usage, and adoption.
+- Provided technical support to customers via chat, managing up to 6 concurrent chats to address and resolve Dynatrace-related issues.
+- Assisted customers in crafting DQL (Dynatrace Query Language) queries during chat sessions.
+- Led training sessions for customers, guiding them through the implementation and utilization of Dynatrace in their respective environments.
+- Implemented side projects focused on implementing Dynatrace monitoring for Kubernetes clusters.
 
 #### PDP Member | Dynatrace
 Detroit, MI (Remote) | June 2023 - November 2023
 
-- Successfully completed a six-month training program preparing for the Technical Product Specialist role.
-- Demonstrated technical expertise by implementing various application stacks and instrumenting them with Dynatrace in Kubernetes and OpenShift environments, showcasing proficiency in performance monitoring.
-- Managed up to 4 concurrent support chats while training, providing timely assistance to customers with product-related queries.
-
+- Completed a six-month training program preparing for the Technical Product Specialist role.
+- Managed up to 4 concurrent support chats while undergoing training to address and resolve Dynatrace-related issues.
+- Demonstrated technical proficiency by implementing diverse application stacks and effectively instrumenting them with Dynatrace in Kubernetes and OpenShift environments, highlighting expertise in performance monitoring and optimization.
+- Developed custom Dynatrace plugins using Python to monitor Windows Management Instrumentation (WMI), showcasing innovation and technical skill in extending Dynatrace's monitoring capabilities.
+- Designed and implemented a deployment script for Windows-based hosts to facilitate the deployment of Dynatrace OneAgent.
 
 #### Web Content Designer | MSU Denver - C2C Hub
 Denver, CO | August 2021 - March 2022
