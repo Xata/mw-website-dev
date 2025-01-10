@@ -166,7 +166,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 <p>The app is very simple. There are some pieces that do not work like the two buttons on the homepage that don't do anything. I remember feeling like I needed to rewrite everything to work with Flask instead of FastAPI. The FastAPI portion is still on the GitHub but it didn't work with Docker. </p>
 <h4>First change</h4>
 <p>One glaring thing I noticed is that the app is listening on 0.0.0.0. In main.py we are passing the following:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">create_app</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">app</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_app</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">()</span>
 
@@ -215,7 +215,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2024 Maciej Wal
+         <div class="col-xs-10">&copy; 2025 Maciej Wal
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
