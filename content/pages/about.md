@@ -1,6 +1,6 @@
 title: About
 date: 2024-03-24
-modified: 2024-03-25
+modified: 2025-01-10
 status: published
 
 Maciej's Dev Blog
@@ -15,7 +15,9 @@ This portfolio website serves as a central hub for showcasing my projects, exper
 - Blog: Posts I have written. These include guides about technologies I use.
 
 ## About me
-As of March 2024, I am an IT professional that is transitioning towards a more development-oriented role. My journey into programming began during high school, where I had the privilege of enrolling in college-level courses at my local institution while still in 10th grade. It was there that I encountered a professor whose mentorship deepened my passion for programming and the outdoors. Although circumstances led me to initially pursue a career in IT support, I have remained committed to becoming a proficient programmer. In 2023, I started to redouble my efforts to establish myself as a professional software developer.
+Hello! My name is Maciej. I'm a software developer in Colorado. Currently, I'm serving as the Interim Associate Director of DevOps, Training, and Operations at the Cybersecurity Center at MSU Denver. I'm currently creating a lot of Helm charts and transitioning a SOC ran by students to be running on Kubernetes. In addition to writing A LOT of .yaml files, I also teach CompTIA A+ (a callback to my expierence as an IT professional). My favorite way to teach is when I lead mini-workshops to teach the fundamentals of Kubernetes and other Cloud Native Computing Foundation porjects. Recently in December of 2024, I became a GIAC certified Global Industrial Cyber Security Professional. 
+
+My journey into programming began during high school, where I had the privilege of enrolling in college-level courses at my local institution while still in 10th grade. It was there that I encountered a professor whose mentorship deepened my passion for programming and the outdoors. Although circumstances led me to initially pursue a career in IT support, I have remained committed to becoming a proficient programmer. In 2023, I redoubled my efforts to establish myself as a professional software developer. In August of 2024, while my title isn't software engineer or software developer, I've officially became a software developer (in my book at least) working at MSU Denver. 
 
 You'll find links to my GitHub and my LinkedIn profile:
 

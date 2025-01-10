@@ -1,9 +1,12 @@
 # Settings for Google
+User-agent: DuckDuckBot
+Allow: /
+
 User-agent: googlebot
 Disallow: /pages/resume/
 
 User-agent: Google-Extended
-Disallow: /
+Disallow: /pages/resume/
 
 # Settings for OpenAI GPT
 User-agent: GPTBot

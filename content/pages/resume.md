@@ -1,6 +1,6 @@
 title: Resume
 date: 2024-03-24
-modified: 2024-03-24
+modified: 2025-01-10
 status: published
 
 Maciej Wal
@@ -10,24 +10,29 @@ Welcome to my resume page. Below, you'll find my skills, educational institution
 
 ## Skills
 
-```Software Development ```
-```Agile Methodology```
-```Databases```
-```DevOps```
-```Infrastructure Deployment```
-```Networking```
+**Programming**: Python, Lua, Bash scripting  
 
-**Programming**: Python, Lua, GL Shading Language
+**Cybersecurity**:  
+- Cybersecurity event analysis and log management (Elasticsearch, Kibana)  
+- Secure system deployment and management (CompTIA A+, GIAC GICSP certified)  
+- Network security (VPNs, firewalls, VLANs)  
 
-**Databases**: Postgres, Sqlite, Apache Cassandra
+**DevOps**:  
+- CI/CD pipeline creation and management  
+- Infrastructure as Code (Azure, Linode)  
+- Containerization and orchestration (Kubernetes, OpenShift)  
 
-**DevOps**: Infrastructure as Code, Configuration Management, CI/CD, Automation, Bash scripting
+**System Administration**:  
+- Windows Server management and configuration  
+- Linux system hardening and automation  
 
-**System Administration**: System configuration, patch management, managing user accounts
+**Tools and Platforms**:  
+- Dynatrace (Associate & Autonomous Cloud certified)  
+- Zammad, OpenSearch, Nginx  
 
-**Infrastructure Deployment**: Systems deployed include: Gitea, Apache Cassandra, Elastic Stack, Opensearch, Nginx, Postgres, Zammad, FreeIPA, Active Directory, FreeRADIUS
-
-**Networking**: VLAN configuration, VPN configuration (OpenVPN & Wireguard), DNS Management, Firewall Configuration
+**Leadership and Training**:  
+- Team mentorship and workshop organization  
+- Delivered CompTIA A+ training and Kubernetes fundamentals  
 
 ## Education
 
@@ -44,17 +49,21 @@ Denver, CO | Graduated in 2016
 
 ## Experience
 
-#### Contractor | MSU Denver - The Cybersecurity Center
-Denver, CO | May 2024 - Present
+#### Interim Associate Director of DevOps, Training, and Operations | MSU Denver - The Cybersecurity Center
+Denver, CO | August 2024 - Present
+
+ - Organized and led workshops on Kubernetes fundamentals, equipping students with essential skills for managing containerized applications.
+ - Launched the ORCA Cyber Range to provide students with hands-on training in real-world cybersecurity scenarios.
+ - Conducted CompTIA A+ training sessions for the Colorado Cybersecurity Collaborative (C3), preparing participants for entry-level IT roles.
+
+#### Temporary Hourly Employee | MSU Denver - The Cybersecurity Center
+Denver, CO | May 2024 - August 2024
 
 - Developed a new proprietary platform for students to analyze cybersecurity events and logs, enhancing the educational experience and practical skills of participants.
 - Transitioned the project from Azure to Linode, resulting in significant cost savings of approximately $1,000 per month in cloud fees, while ensuring optimal performance and reliability.
 - Designed and constructed physical collectors using readily available components, deploying them to customer sites to gather cybersecurity data.
 - Implemented deep-packet inspection capabilities, enabling students to perform in-depth analysis of network traffic and security threats
 - Created a new process for students to log and track cybersecurity incidents and requests by introducing Zammad as a ticketing platform.
-- Modified Zammad's Ruby source code to tailor it to the specific needs of the organization, enhancing its functionality for students.
-- Established a robust CI/CD pipeline to automate the deployment and testing of Zammad updates and customizations, ensuring efficiency and reliability in software development and deployment processes.
-- Configured DNS and set up a Wireguard endpoint to establish secure communication channels.
 
 #### Tier 2 Team Lead | MSU Denver - Project PISCES
 Denver, CO | September 2023 - May 2024
@@ -110,6 +119,11 @@ Aurora, CO | January 2019 - September 2020
 - Acted as a mentor to students by allowing them to assist with departmental tasks.
 
 ## Certifications
+
+#### [Global Industrial Cyber Security Professional](https://www.credly.com/badges/5b7a467f-78d9-4113-b2d8-ef1554016ff9)
+ - Global Information Assurance Certification (GIAC)
+ - Issued: December 2024
+ - Expires: December 2028
 
 #### [Certified in Cybersecurity](https://www.credly.com/badges/69e6d826-e9e6-4432-b749-00de03dfe3f3)
 - ISC2
