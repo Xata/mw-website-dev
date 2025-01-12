@@ -13,22 +13,22 @@ Welcome to my resume page. Below, you'll find my skills, educational institution
 **Programming**: Python, Lua, Bash scripting  
 
 **Cybersecurity**:  
-- Cybersecurity event analysis and log management (Elasticsearch, Kibana)  
-- Secure system deployment and management (CompTIA A+, GIAC GICSP certified)  
+- Cybersecurity event analysis and log management
+- Secure system deployment and management
 - Network security (VPNs, firewalls, VLANs)  
 
 **DevOps**:  
-- CI/CD pipeline creation and management  
-- Infrastructure as Code (Azure, Linode)  
+- CI/CD pipeline creation and management (Jenkins, Argo)  
+- Infrastructure as Code (OpenTofu, Ansible)  
 - Containerization and orchestration (Kubernetes, OpenShift)  
 
 **System Administration**:  
 - Windows Server management and configuration  
-- Linux system hardening and automation  
+- Linux system hardening and automation
+- MacOS system hardening (⌐■_■)
 
 **Tools and Platforms**:  
-- Dynatrace (Associate & Autonomous Cloud certified)  
-- Zammad, OpenSearch, Nginx  
+- Observability Tools (Dynatrace, OpenSearch, ELK Stack)  
 
 **Leadership and Training**:  
 - Team mentorship and workshop organization  
