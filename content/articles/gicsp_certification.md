@@ -8,7 +8,7 @@ A little late to putting this up on my website but on December 20, 2024, I earne
 
 I really want to thank my current place of employment, The Cybersecurity Center at MSU Denver, for making this certification happen.
 
-The exam wasn’t easy—it definitely made me think. Luckily, my experience with things like system hardening and network security came in handy. It felt good to connect the dots between what I’ve done in the field and what the certification covers. 
+The exam wasn’t easy, it definitely made me think. My experience with things like system hardening and network security came in handy. It felt good to connect the dots between what I’ve done in the field and what the certification covers. 
 
 If you want to check it out, here’s my badge on Credly: [GICSP Badge](https://www.credly.com/badges/5b7a467f-78d9-4113-b2d8-ef1554016ff9).  
 

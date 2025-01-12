@@ -19,7 +19,7 @@ If you find a security issue on mwal.dev, send me an email. Here’s what would 
 - Why you think it’s a security concern (if you know).  
 
 ### What Happens Next:
-- **Quick Response**: I’ll reply within **48 hours** to confirm I got your message.  
+- **Quick Response**: I’ll reply within **48-72 hours** to confirm I got your message.  
 - **Updates**: Within **7 business days**, I’ll let you know what I’m doing to address it.  
 - **Fixes**: If it’s a valid issue, I’ll fix it as quickly as possible and keep you updated.  
 
