@@ -17,7 +17,8 @@ This portfolio website serves as a central hub for showcasing my projects, exper
 ## About me
 Hello! My name is Maciej. I'm a software developer in Colorado. Currently, I'm serving as the Interim Associate Director of DevOps, Training, and Operations at the Cybersecurity Center at MSU Denver. I'm currently creating a lot of Helm charts and transitioning a SOC ran by students to be running on Kubernetes. In addition to writing A LOT of .yaml files, I also teach CompTIA A+ (a callback to my experience as an IT professional). My favorite way to teach is when I lead mini-workshops to teach the fundamentals of Kubernetes and other Cloud Native Computing Foundation projects. Recently in December of 2024, I became a GIAC certified Global Industrial Cyber Security Professional. 
 
-My journey into programming began during high school, where I had the privilege of enrolling in college-level courses at my local institution while still in 10th grade. It was there that I encountered a professor whose mentorship deepened my passion for programming and the outdoors. Although circumstances led me to initially pursue a career in IT support, I have remained committed to becoming a proficient programmer. In 2023, I redoubled my efforts to establish myself as a professional software developer. In August of 2024, while my title isn't software engineer or software developer, I've officially became a software developer (in my book at least) working at MSU Denver. 
+My journey into programming began during high school, where I had the privilege of enrolling in college-level courses at my local institution while still in 10th grade. It was there that I encountered a professor whose mentorship deepened my passion for programming and the outdoors. Although circumstances led me to initially pursue a career in IT support, I have remained committed to being a proficient programmer.
+
 
 You'll find links to my GitHub and my LinkedIn profile:
 

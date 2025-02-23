@@ -25,7 +25,6 @@ Welcome to my resume page. Below, you'll find my skills, educational institution
 **System Administration**:  
 - Windows Server management and configuration  
 - Linux system hardening and automation
-- MacOS system hardening (⌐■_■)
 
 **Tools and Platforms**:  
 - Observability Tools (Dynatrace, OpenSearch, ELK Stack)  
@@ -121,9 +120,27 @@ Aurora, CO | January 2019 - September 2020
 ## Certifications
 
 #### [Global Industrial Cyber Security Professional](https://www.credly.com/badges/5b7a467f-78d9-4113-b2d8-ef1554016ff9)
- - Global Information Assurance Certification (GIAC)
- - Issued: December 2024
- - Expires: December 2028
+- Global Information Assurance Certification (GIAC)
+- Issued: December 2024
+- Expires: December 2028
+
+#### [CompTIA CYSA+](https://www.credly.com/badges/91a25c38-06a6-4029-bad8-74009e5bec6a)
+- CompTIA
+- Issued: February 2025
+- Expires: February 2028
+- Credential ID: COMP001020920168
+
+#### [CompTIA PenTest+](https://www.credly.com/earner/earned/badge/e17b96f6-d8e1-4bbc-a72b-0accb7a39709)
+- CompTIA
+- Issued: February 2025
+- Expires: February 2031
+- Credential ID: COMP001020920168
+
+#### [CompTIA A+](https://www.certmetrics.com/comptia/public/verification.aspx/)
+- CompTIA
+- Issued: June 2019
+- Expires: June 2031
+- Credential ID: WES03MZ3DK1E52P1
 
 #### [Certified in Cybersecurity](https://www.credly.com/badges/69e6d826-e9e6-4432-b749-00de03dfe3f3)
 - ISC2
@@ -139,12 +156,6 @@ Aurora, CO | January 2019 - September 2020
 - Dynatrace
 - Issued: August 2023
 - Expires: August 2025
-
-#### [CompTIA A+](https://www.certmetrics.com/comptia/public/verification.aspx/)
-- CompTIA
-- Issued: June 2019
-- Expires: June 2025
-- Credential ID: WES03MZ3DK1E52P1
 
 #### [CompTIA Mobility+](https://www.certmetrics.com/comptia/public/verification.aspx/)
 - CompTIA

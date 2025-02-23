@@ -1,5 +1,6 @@
 # Ignore notes.md
 notes.md
+instructions.md
 
 # Ignore the output folder to save space
 output/

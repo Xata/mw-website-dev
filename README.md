@@ -28,7 +28,8 @@ The following was used to create the website:
 
 To run the website. Follow the steps below:
 
-⚠️ On Windows 10/11 you may need to execute the following command first:
+##### Windows 11
+⚠️ On Windows 11 you may need to execute the following command first:
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
@@ -48,6 +49,18 @@ On Windows, executing the following script to activate the virtual environment:
 .\Activate.ps1
 ```
 
+##### MacOS
+Create a virtual environment for Python:
+```zsh
+python -m venv .venv
+```
+
+Activate the virtual environment:
+```zsh
+source .venv/bin/activate
+```
+
+#### Run the test website
 Now navigate back to the root directory and run the following command:
 ```powershell
 pip install -r requirements.txt
