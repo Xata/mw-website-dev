@@ -6,11 +6,21 @@ status: published
 Maciej Wal
 ==========
 
-Welcome to my resume page. Below, you'll find my skills, educational institutions I've attended, and my professional work experience.
+Hello! What are you doing here? ლ( ͠°ᗝ °ლ)
+
+I'm the Cybersecurity Platform Architect at the Cybersecurity Center at MSU Denver. I work on building infrastructure that helps students get hands-on experience in cybersecurity while supporting the security of small communities across Colorado. I also teach cloud workshops to get students ready for real-world enterprise environments (╭☞■ᗜ■)╭☞
+
+I led the deployment of CENTURION Secured, a full-scale SOC, in just 66 days. I also run workshops on Kubernetes and other DevOps tools to help students learn real-world tech skills and to introduce them to Cloud Native Computing Foundation projects. Before this, I worked at Dynatrace, focusing on answering chat support tickets around app performance and cloud technologies.
+
+Some people call me a generalist but that's okay with me. I like being able to stand up the infrastructure needed for an organization to succeed. Sprinkle in some custom apps and boom! I've been working with students to push for more local-focused development. Let's build stuff to impact our local communities. 
+
+I just like building cool stuff for people who need it.
+
+(ﾉò◡ó)ﾉ*:･ﾟ✧
 
 ## Skills
 
-**Programming**: Python, Lua, Bash scripting  
+**Programming**: Python, Java, Lua, Bash scripting, PowerShell
 
 **Cybersecurity**:  
 - Cybersecurity event analysis and log management
@@ -20,7 +30,7 @@ Welcome to my resume page. Below, you'll find my skills, educational institution
 **DevOps**:  
 - CI/CD pipeline creation and management (Jenkins, Argo)  
 - Infrastructure as Code (OpenTofu, Ansible)  
-- Containerization and orchestration (Kubernetes, OpenShift)  
+- Containerization and orchestration (Kubernetes)  
 
 **System Administration**:  
 - Windows Server management and configuration  
@@ -48,47 +58,37 @@ Denver, CO | Graduated in 2016
 
 ## Experience
 
-#### Interim Associate Director of DevOps, Training, and Operations | MSU Denver - The Cybersecurity Center
-Denver, CO | August 2024 - Present
+#### Cybersecurity Platform Architect | MSU Denver - The Cybersecurity Center
+Denver, CO | October 2023 - Present
 
- - Organized and led workshops on Kubernetes fundamentals, equipping students with essential skills for managing containerized applications.
- - Launched the ORCA Cyber Range to provide students with hands-on training in real-world cybersecurity scenarios.
- - Conducted CompTIA A+ training sessions for the Colorado Cybersecurity Collaborative (C3), preparing participants for entry-level IT roles.
+- Designed an edge Kubernetes system with nodes deployed on customer networks; students push detection rules via GitOps using isolated namespaces.
+- Led the transition from Project PISCES to Centurion Secured, deploying core infrastructure (Suricata, OpenSearch, WireGuard) for a new SOC.
+- Migrated all infrastructure from Linode to DigitalOcean, optimizing for cost, performance, and maintainability.
+- Deployed ArgoCD from scratch to support GitOps workflows for student-facing applications.
+- Containerized and deployed Moodle on Kubernetes for centralized training content and lab delivery.
+- Founded the Open Source Initiative, pairing student developers with student security analysts to build internal tools.
+- Built and maintained CI/CD pipelines using GitHub Actions, Jenkins, and Docker for application and rule deployment.
+- Provided hands-on Kubernetes training to students, bridging academic concepts with real-world production workflows.
+- Mentored Tier 1 and Tier 2 analysts in log analysis, incident response, and cybersecurity fundamentals.
+- Led 30+ training sessions and technical workshops covering infrastructure, automation, and SOC tooling.
+- Managed DigitalOcean budgets and cloud infrastructure for both The Cybersecurity Center and Centurion Secured operations.
 
-#### Temporary Hourly Employee | MSU Denver - The Cybersecurity Center
-Denver, CO | May 2024 - August 2024
-
-- Developed a new proprietary platform for students to analyze cybersecurity events and logs, enhancing the educational experience and practical skills of participants.
-- Transitioned the project from Azure to Linode, resulting in significant cost savings of approximately $1,000 per month in cloud fees, while ensuring optimal performance and reliability.
-- Designed and constructed physical collectors using readily available components, deploying them to customer sites to gather cybersecurity data.
-- Implemented deep-packet inspection capabilities, enabling students to perform in-depth analysis of network traffic and security threats
-- Created a new process for students to log and track cybersecurity incidents and requests by introducing Zammad as a ticketing platform.
-
-#### Tier 2 Team Lead | MSU Denver - Project PISCES
-Denver, CO | September 2023 - May 2024
-
-- Supervised and mentored a team of 64 students from 5 different higher education organizations, fostering a collaborative and supportive work environment.
-- Conducted bi-monthly training sessions for student cohorts, equipping them with basic cybersecurity skills and a primer on reading logs and alerts in Elasticsearch.
-- Provided training on utilizing Elasticsearch, Kibana, and the Mantis bug tracker.
-- Implemented a rigorous ticket review process, ensuring the accuracy and completeness of tickets submitted by the team before escalation to Tier 3 for final resolution.
-- Managed and processed a high volume of tickets, averaging 300 tickets per month, to address cybersecurity events across the State of Colorado.
+Tools & platforms: ArgoCD, Kubernetes (k3s), Docker, GitHub Actions, Jenkins, Suricata, OpenSearch, WireGuard, FreeIPA, Moodle, Debian, AWS, Bash, DigitalOcean, Linode
 
 #### Technical Product Specialist | Dynatrace
-Denver, CO | November 2023 - December 2023
+Denver, CO | June 2023 - December 2023
 
 - Provided technical support to customers via chat, managing up to 6 concurrent chats to address and resolve Dynatrace-related issues.
 - Assisted customers in crafting DQL (Dynatrace Query Language) queries during chat sessions.
 - Led training sessions for customers, guiding them through the implementation and utilization of Dynatrace in their respective environments.
 - Implemented side projects focused on implementing Dynatrace monitoring for Kubernetes clusters.
-
-#### PDP Member | Dynatrace
-Detroit, MI (Remote) | June 2023 - November 2023
-
 - Completed a six-month training program preparing for the Technical Product Specialist role.
 - Managed up to 4 concurrent support chats while undergoing training to address and resolve Dynatrace-related issues.
 - Demonstrated technical proficiency by implementing diverse application stacks and effectively instrumenting them with Dynatrace in Kubernetes and OpenShift environments, highlighting expertise in performance monitoring and optimization.
 - Developed custom Dynatrace plugins using Python to monitor Windows Management Instrumentation (WMI), showcasing innovation and technical skill in extending Dynatrace's monitoring capabilities.
 - Designed and implemented a deployment script for Windows-based hosts to facilitate the deployment of Dynatrace OneAgent.
+
+Tools & platforms: Dynatrace OneAgent, Dynatrace Managed, AWS, Azure, GCP, REST APIs, Linux, OpenTelemetry
 
 #### Web Content Designer | MSU Denver - C2C Hub
 Denver, CO | August 2021 - March 2022
@@ -107,6 +107,8 @@ Denver, CO | February 2021 - July 2021
 - Provided technical support for escalated issues from the helpdesk team.
 - Implemented Microsoft Intune to manage deployment and inventory tracking of remote devices.
 
+Tools & platforms: Microsoft Intune, PowerShell, Active Directory, SCCM, Windows 10, Surface Devices, Remote Desktop, Zoom
+
 #### Technology Specialist | Cherry Creek School District
 Aurora, CO | January 2019 - September 2020
 
@@ -116,6 +118,8 @@ Aurora, CO | January 2019 - September 2020
 - Automated inventory processes by implementing PDQ Inventory.
 - Proactively monitored and maintained over 1,000 unique devices, including Chromebooks, Dell desktop computers, iPads, and 3D printers.
 - Acted as a mentor to students by allowing them to assist with departmental tasks.
+
+Tools & platforms: Windows Server 2016, PDQ Deploy, SCCM, Papercut, FileMaker Pro, Google Admin Console, PowerShell, Chromebooks
 
 ## Certifications
 

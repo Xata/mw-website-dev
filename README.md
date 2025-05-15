@@ -39,14 +39,9 @@ Now create a new virtual environment for Python:
 python -m venv .venv
 ```
 
-Navigate to the Scripts directory:
-```powershell
-cd .venv\Scripts\
-```
-
-On Windows, executing the following script to activate the virtual environment:
+Execute the following script to activate the virtual environment:
 ```powerhsell
-.\Activate.ps1
+.venv\Scripts\Activate.ps1
 ```
 
 ##### MacOS

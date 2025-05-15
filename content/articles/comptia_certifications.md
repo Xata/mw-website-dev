@@ -1,11 +1,12 @@
 Title: Two More CompTIA Certifications...
 Author: Maciej
 Date: 2025-02-21 12:08
+Updated: 2025-05-14
 Category: blog
 Tags: markdown, blog, comptia, cybersecurity, certification, IT
 
 ## PenTest+ and CYSA+
-(⌐■_■) (⌐■_■) (⌐■_■)                                                                          
+(⌐■_■)                                                                          
 
 I'm pleased to announce that I have earned two more certifications:
 [CompTIA PenTest+](https://www.credly.com/earner/earned/badge/e17b96f6-d8e1-4bbc-a72b-0accb7a39709)
