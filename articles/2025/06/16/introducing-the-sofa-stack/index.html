@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Introducing the SOFA Stack! - Maciej's Dev Blog</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/articles/2025/06/16/introducing-the-sofa-stack/">
+
+        <meta name="author" content="Maciej" />
+        <meta name="keywords" content="markdown,blog,sofa,cybersecurity,IT,security" />
+        <meta name="description" content="Introducing the SOFA stack!! The SOFA stack is a simple security monitoring platform built using free and open source software. While maybe SOFA is not a complete SIEM, it provides a security data platform for you to monitor network traffic in your organization or home. This is the project that …" />
+
+        <meta property="og:site_name" content="Maciej's Dev Blog" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Introducing the SOFA Stack!"/>
+        <meta property="og:url" content="/articles/2025/06/16/introducing-the-sofa-stack/"/>
+        <meta property="og:description" content="Introducing the SOFA stack!! The SOFA stack is a simple security monitoring platform built using free and open source software. While maybe SOFA is not a complete SIEM, it provides a security data platform for you to monitor network traffic in your organization or home. This is the project that …"/>
+        <meta property="article:published_time" content="2025-06-16" />
+            <meta property="article:section" content="blog" />
+            <meta property="article:tag" content="markdown" />
+            <meta property="article:tag" content="blog" />
+            <meta property="article:tag" content="sofa" />
+            <meta property="article:tag" content="cybersecurity" />
+            <meta property="article:tag" content="IT" />
+            <meta property="article:tag" content="security" />
+            <meta property="article:author" content="Maciej" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.simplex.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+Maciej's Dev Blog            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about/">
+                             About
+                          </a></li>
+                         <li><a href="/pages/resume/">
+                             Resume
+                          </a></li>
+                        <li class="active">
+                            <a href="/category/blog">Blog</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/articles/2025/06/16/introducing-the-sofa-stack/"
+                       rel="bookmark"
+                       title="Permalink to Introducing the SOFA Stack!">
+                        Introducing the SOFA Stack!
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2025-06-16T15:54:00-06:00"> Mon 16 June 2025</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/markdown">markdown</a>
+        /
+	<a href="/tag/blog">blog</a>
+        /
+	<a href="/tag/sofa">sofa</a>
+        /
+	<a href="/tag/cybersecurity">cybersecurity</a>
+        /
+	<a href="/tag/it">IT</a>
+        /
+	<a href="/tag/security">security</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p><img alt="The SOFA Stack" src="/img/sofa_on_sofa.jpg"></p>
+<p>Introducing <strong>the SOFA stack</strong>!! The SOFA stack is a simple security monitoring platform built using free and open source software. While maybe SOFA is not a complete SIEM, it provides a security data platform for you to monitor network traffic in your organization or home. This is the project that I've been working on here at the Cybersecurity Center at MSU Denver. I started getting a lot of questions about this after being on a panel at NICE 2025.</p>
+<p>I’m assuming that you’re curious to know what the SOFA stack is exactly?
+Right, well the SOFA stack is made up of Suricata, OpenSearch, FluentBit,
+and Apache Kafka. No, I’m not dropping the Apache part. I want the
+acronym to be SOFA. I find it really amusing to talk to stakeholders about
+it. Mentioning the word sofa makes some people giggle. Anyway, here is the
+breakdown of the components of SOFA:</p>
+<ul>
+<li>
+<p><strong>Suricata</strong>: High-performance network security monitoring engine that
+provides real-time intrusion detection, network security monitoring,
+and inline intrusion prevention capabilities.</p>
+</li>
+<li>
+<p><strong>OpenSearch</strong>: Distributed search and analytics engine that enables
+fast querying, visualization, and analysis of large volumes of security
+data with powerful aggregation capabilities.</p>
+</li>
+<li>
+<p><strong>FluentBit</strong>: Lightweight, high-performance log processor and forwarder
+that efficiently collects, processes, and routes data from multiple sources
+with minimal resource overhead.</p>
+</li>
+<li>
+<p><strong>Apache Kafka</strong>: Distributed streaming platform that provides reliable,
+scalable message buffering and enables decoupling of data producers
+from consumers while ensuring data durability and replay capabilities.</p>
+</li>
+</ul>
+<p>A how-to guide (minus all the Centurion Secured bits) is coming soon!</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://github.com/Xata"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+    <li class="list-group-item"><a href="https://www.linkedin.com/in/maciejwal/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2025 Maciej Wal
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>
