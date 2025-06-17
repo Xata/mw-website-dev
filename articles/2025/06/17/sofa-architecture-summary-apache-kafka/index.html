@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>SOFA Architecture Summary - Suricata - Maciej's Dev Blog</title>
+    <title>SOFA Architecture Summary - Apache Kafka - Maciej's Dev Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,17 +9,17 @@
 
 
 
-<link rel="canonical" href="/articles/2025/06/17/sofa-architecture-summary-suricata/">
+<link rel="canonical" href="/articles/2025/06/17/sofa-architecture-summary-apache-kafka/">
 
         <meta name="author" content="Maciej" />
         <meta name="keywords" content="markdown,blog,sofa,cybersecurity,IT,security" />
-        <meta name="description" content="SOFA is made up of a few components: A machine running OpenSearch, a machine running OpenSearch Dashboards, a machine running Apache Kafka, and a separate machine/device that runs Suricata and FluentBit. These can be combined or split up in different ways but the simplest SOFA is made up of …" />
+        <meta name="description" content="Apache Kafka is a distributed streaming platform that acts as the central message broker in SOFA. Apache Kafka is designed to handle high-throughput, fault-tolerant streaming of data between systems. Do we need all the fancy fault-tolerant features of Apache Kafka? Probably not. However, it is a great learning experience for …" />
 
         <meta property="og:site_name" content="Maciej's Dev Blog" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="SOFA Architecture Summary - Suricata"/>
-        <meta property="og:url" content="/articles/2025/06/17/sofa-architecture-summary-suricata/"/>
-        <meta property="og:description" content="SOFA is made up of a few components: A machine running OpenSearch, a machine running OpenSearch Dashboards, a machine running Apache Kafka, and a separate machine/device that runs Suricata and FluentBit. These can be combined or split up in different ways but the simplest SOFA is made up of …"/>
+        <meta property="og:title" content="SOFA Architecture Summary - Apache Kafka"/>
+        <meta property="og:url" content="/articles/2025/06/17/sofa-architecture-summary-apache-kafka/"/>
+        <meta property="og:description" content="Apache Kafka is a distributed streaming platform that acts as the central message broker in SOFA. Apache Kafka is designed to handle high-throughput, fault-tolerant streaming of data between systems. Do we need all the fancy fault-tolerant features of Apache Kafka? Probably not. However, it is a great learning experience for …"/>
         <meta property="article:published_time" content="2025-06-17" />
             <meta property="article:section" content="blog" />
             <meta property="article:tag" content="markdown" />
@@ -87,10 +87,10 @@ Maciej's Dev Blog            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="/articles/2025/06/17/sofa-architecture-summary-suricata/"
+                    <a href="/articles/2025/06/17/sofa-architecture-summary-apache-kafka/"
                        rel="bookmark"
-                       title="Permalink to SOFA Architecture Summary - Suricata">
-                        SOFA Architecture Summary - Suricata
+                       title="Permalink to SOFA Architecture Summary - Apache Kafka">
+                        SOFA Architecture Summary - Apache Kafka
                     </a>
                 </h1>
             </header>
@@ -100,7 +100,7 @@ Maciej's Dev Blog            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2025-06-17T10:36:00-06:00"> Tue 17 June 2025</time>
+        <i class="fa fa-calendar"></i><time datetime="2025-06-17T12:55:00-06:00"> Tue 17 June 2025</time>
     </span>
 
 
@@ -122,14 +122,13 @@ Maciej's Dev Blog            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>SOFA is made up of a few components: A machine running OpenSearch, a machine running OpenSearch Dashboards, a machine running Apache Kafka, and a separate machine/device that runs Suricata and FluentBit. These can be combined or split up in different ways but the simplest SOFA is made up of two physical machines: one running virtual machines that run OpenSearch, OpenSearch Dashboards, and Apache Kafka and then another machine that does the actual traffic inspection with Suricata and log packaging with FluentBit. Let’s look at the different software components and their uses next. In this post we'll go over Suricata or the S part of SOFA.</p>
-<h2>Suricata</h2>
-<p>Suricata is self-described as a high performance, open source network analysis and threat detection software. I,personally, was exposed to Suricata when I was deploying OPNsense at my house. You don’t care about that, you’re reading this because you want to deploy a SOFA in your environment. Sorry. In the SOFA guide (COMING SOON!), I will go over how to deploy Suricata onto a physical machine running Debian.</p>
-<h3>Suricata's Role</h3>
-<p>Suricata’s role in an environment is in an Intrusion Detection System (IDS) or an Intrusion Prevention System (IPS) capacity. The difference between an IDS and an IPS is literally a few lines within Suricata’s configuration. We run Suricata as an IDS passively. We don’t want to interrupt a customer’s business operations or business continuity. If Suricata experiences issues, crashes, or needs any maintenance, your customer’s network operations continue uninterrupted. An IPS deployment, while offering the ability to actively block threats for customers, introduces a potential single point of failure that could disrupt business critical operations. For Centurion Secured, the detection and alerting capabilities of Suricata’s IDS mode, combined with the comprehensive logging we’ll feed into the analytics pipeline, provide a decent enough visibility without the operational risk.</p>
-<h3>Why Suricata?</h3>
-<p>Suricata was specifically chosen for SOFA because of its deployment simplicity. Also, it’s free and open-source under the GNU General Public License. While this is anecdotal, I find that community driven projects really do drive innovation. People are friendly and they really like your contributions to their community. There is an active rule development community that continuously releases rulesets for anyone to use with their Suricata deployment. This is nice because you won’t need to monitor logs yourself and make custom rules for your everything in your environment. You can, but this is
-outside the scope of this guide. Beyond the community aspects, Suricata’s multi-threaded architecture makes it very suited for modern hardware. The Centurion Secured project at MSU Denver uses Raspberry Pis to passively inspect traffic on customers’ networks for example. The JSON output format integrates really easily with FluentBit and Apache Kafka, eliminating the need for any complex log parsing. This combination of performance, flexibility, and community support makes it an ideal foundation for SOFA.</p>
+                <p>Apache Kafka is a distributed streaming platform that acts as the central message broker in SOFA. Apache Kafka is designed to handle high-throughput, fault-tolerant streaming of data between systems. Do we need all the fancy fault-tolerant features of Apache Kafka? Probably not. However, it is a great learning experience for students that work with SOFA. </p>
+<p>Originally, the SOFA stack was the SOF stack, if we're going by acronyms. However, as Centurion Secured started to introduce more community partners with 10 gigabit connections we started getting errors in OpenSearch. The single-node cluster of the original deployment could not keep up. In the new deployment, I introduced Apache Kafka in between the physical collectors and OpenSearch. I think this really matured the pipeline. We were finally able to ingest multiple community partners who had 10 gigabit connections at their organizations.</p>
+<h3>Apache Kafka's Role</h3>
+<p>Earlier I mentioned that Centurion Secured ran into an issue when the project started onboarding more 10 gigabit connections. Apache Kafka is a platform that acts as the central message broker in a SOFA deployment. In the SOFA stack, Apache Kafka effectively serves as a buffer and distribution hub between FluentBit and OpenSearch. FluentBit parses Suricata's output, sends them to Apache Kafka, while OpenSearch consumes these messages for indexing and storage. This decoupling allows each component to operate at its own pace.</p>
+<p>Apache Kafka guarantees that once a log is sent to Kafka, it won't be lost even if the individual collector goes down later. It also provides durability guarantees, a lot of the community partners that are a part of the Centurion Secured project are located in some very remote areas. Internet connectivity would be considered mid by people younger than me. That sort of functionality is crucial for security data where losing events could mean missing critical threats.</p>
+<h3>Why Apache Kafka?</h3>
+<p>Apache Kafka lends itself to make the acronym amusing. SOFA is more fun to say than SOFK. This acronym is also catchier. </p>
             </div>
             <!-- /.entry-content -->
         </article>

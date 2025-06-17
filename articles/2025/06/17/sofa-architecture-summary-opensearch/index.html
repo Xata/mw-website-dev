@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>SOFA Architecture Summary - Suricata - Maciej's Dev Blog</title>
+    <title>SOFA Architecture Summary - OpenSearch - Maciej's Dev Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,17 +9,17 @@
 
 
 
-<link rel="canonical" href="/articles/2025/06/17/sofa-architecture-summary-suricata/">
+<link rel="canonical" href="/articles/2025/06/17/sofa-architecture-summary-opensearch/">
 
         <meta name="author" content="Maciej" />
         <meta name="keywords" content="markdown,blog,sofa,cybersecurity,IT,security" />
-        <meta name="description" content="SOFA is made up of a few components: A machine running OpenSearch, a machine running OpenSearch Dashboards, a machine running Apache Kafka, and a separate machine/device that runs Suricata and FluentBit. These can be combined or split up in different ways but the simplest SOFA is made up of …" />
+        <meta name="description" content="OpenSearch is an open-source, enterprise-grade search and observability suite that brings order to unstructured data at scale. OpenSearch was forked from Elasticsearch 7.10.2 in 2021. The project is released under the Apache License 2.0, which keeps it truly open source. OpenSearch&#39;s Role OpenSearch is a distributed search …" />
 
         <meta property="og:site_name" content="Maciej's Dev Blog" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="SOFA Architecture Summary - Suricata"/>
-        <meta property="og:url" content="/articles/2025/06/17/sofa-architecture-summary-suricata/"/>
-        <meta property="og:description" content="SOFA is made up of a few components: A machine running OpenSearch, a machine running OpenSearch Dashboards, a machine running Apache Kafka, and a separate machine/device that runs Suricata and FluentBit. These can be combined or split up in different ways but the simplest SOFA is made up of …"/>
+        <meta property="og:title" content="SOFA Architecture Summary - OpenSearch"/>
+        <meta property="og:url" content="/articles/2025/06/17/sofa-architecture-summary-opensearch/"/>
+        <meta property="og:description" content="OpenSearch is an open-source, enterprise-grade search and observability suite that brings order to unstructured data at scale. OpenSearch was forked from Elasticsearch 7.10.2 in 2021. The project is released under the Apache License 2.0, which keeps it truly open source. OpenSearch&#39;s Role OpenSearch is a distributed search …"/>
         <meta property="article:published_time" content="2025-06-17" />
             <meta property="article:section" content="blog" />
             <meta property="article:tag" content="markdown" />
@@ -87,10 +87,10 @@ Maciej's Dev Blog            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="/articles/2025/06/17/sofa-architecture-summary-suricata/"
+                    <a href="/articles/2025/06/17/sofa-architecture-summary-opensearch/"
                        rel="bookmark"
-                       title="Permalink to SOFA Architecture Summary - Suricata">
-                        SOFA Architecture Summary - Suricata
+                       title="Permalink to SOFA Architecture Summary - OpenSearch">
+                        SOFA Architecture Summary - OpenSearch
                     </a>
                 </h1>
             </header>
@@ -100,7 +100,7 @@ Maciej's Dev Blog            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2025-06-17T10:36:00-06:00"> Tue 17 June 2025</time>
+        <i class="fa fa-calendar"></i><time datetime="2025-06-17T12:47:00-06:00"> Tue 17 June 2025</time>
     </span>
 
 
@@ -122,14 +122,11 @@ Maciej's Dev Blog            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>SOFA is made up of a few components: A machine running OpenSearch, a machine running OpenSearch Dashboards, a machine running Apache Kafka, and a separate machine/device that runs Suricata and FluentBit. These can be combined or split up in different ways but the simplest SOFA is made up of two physical machines: one running virtual machines that run OpenSearch, OpenSearch Dashboards, and Apache Kafka and then another machine that does the actual traffic inspection with Suricata and log packaging with FluentBit. Let’s look at the different software components and their uses next. In this post we'll go over Suricata or the S part of SOFA.</p>
-<h2>Suricata</h2>
-<p>Suricata is self-described as a high performance, open source network analysis and threat detection software. I,personally, was exposed to Suricata when I was deploying OPNsense at my house. You don’t care about that, you’re reading this because you want to deploy a SOFA in your environment. Sorry. In the SOFA guide (COMING SOON!), I will go over how to deploy Suricata onto a physical machine running Debian.</p>
-<h3>Suricata's Role</h3>
-<p>Suricata’s role in an environment is in an Intrusion Detection System (IDS) or an Intrusion Prevention System (IPS) capacity. The difference between an IDS and an IPS is literally a few lines within Suricata’s configuration. We run Suricata as an IDS passively. We don’t want to interrupt a customer’s business operations or business continuity. If Suricata experiences issues, crashes, or needs any maintenance, your customer’s network operations continue uninterrupted. An IPS deployment, while offering the ability to actively block threats for customers, introduces a potential single point of failure that could disrupt business critical operations. For Centurion Secured, the detection and alerting capabilities of Suricata’s IDS mode, combined with the comprehensive logging we’ll feed into the analytics pipeline, provide a decent enough visibility without the operational risk.</p>
-<h3>Why Suricata?</h3>
-<p>Suricata was specifically chosen for SOFA because of its deployment simplicity. Also, it’s free and open-source under the GNU General Public License. While this is anecdotal, I find that community driven projects really do drive innovation. People are friendly and they really like your contributions to their community. There is an active rule development community that continuously releases rulesets for anyone to use with their Suricata deployment. This is nice because you won’t need to monitor logs yourself and make custom rules for your everything in your environment. You can, but this is
-outside the scope of this guide. Beyond the community aspects, Suricata’s multi-threaded architecture makes it very suited for modern hardware. The Centurion Secured project at MSU Denver uses Raspberry Pis to passively inspect traffic on customers’ networks for example. The JSON output format integrates really easily with FluentBit and Apache Kafka, eliminating the need for any complex log parsing. This combination of performance, flexibility, and community support makes it an ideal foundation for SOFA.</p>
+                <p>OpenSearch is an open-source, enterprise-grade search and observability suite that brings order to unstructured data at scale. OpenSearch was forked from Elasticsearch 7.10.2 in 2021. The project is released under the Apache License 2.0, which keeps it truly open source. </p>
+<h3>OpenSearch's Role</h3>
+<p>OpenSearch is a distributed search and analytics engine built upon Apache Lucene. It's great for ingesting the JSON output from Suricata. OpenSearch serves as the central data store and search engine for the security logs in SOFA. It ingests the structured log data from Apache Kafka, indexes it for really fast searching (or slow if you have 100 people trying to use a single-node cluster), and provides the backend for OpenSearch Dashboards where student analysts can create visualizations and perform the actual security analysis. You can think of OpenSearch as the "database" that holds onto your security data.</p>
+<h3>Why OpenSearch?</h3>
+<p>It's not Elasticsearch. Back in 2023, Elasticsearch hid their LDAP integration behind a paywall. I needed to manage users from across different institutions in Colorado. I was doing so, originally, with FreeIPA before moving on to GLAuth. Elastic decided that they were going to hide the ability to integrate account management with LDAP behind a paywall. So I used OpenSearch instead.</p>
             </div>
             <!-- /.entry-content -->
         </article>
