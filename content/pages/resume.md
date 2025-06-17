@@ -146,6 +146,9 @@ Tools & platforms: Windows Server 2016, PDQ Deploy, SCCM, Papercut, FileMaker Pr
 - Expires: June 2031
 - Credential ID: WES03MZ3DK1E52P1
 
+### Historical Certifications
+These are certifications that I've held in the past or that I don't consider relevant anymore. 
+
 #### [Certified in Cybersecurity](https://www.credly.com/badges/69e6d826-e9e6-4432-b749-00de03dfe3f3)
 - ISC2
 - Issued: March 2024
