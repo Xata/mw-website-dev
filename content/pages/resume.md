@@ -1,6 +1,6 @@
 title: Resume
 date: 2024-03-24
-modified: 2025-01-10
+modified: 2025-06-17
 status: published
 
 Maciej Wal
@@ -28,7 +28,7 @@ I just like building cool stuff for people who need it.
 - Network security (VPNs, firewalls, VLANs)  
 
 **DevOps**:  
-- CI/CD pipeline creation and management (Jenkins, Argo)  
+- CI/CD pipeline creation and management (Jenkins, ArgoCD)  
 - Infrastructure as Code (OpenTofu, Ansible)  
 - Containerization and orchestration (Kubernetes)  
 
@@ -37,7 +37,7 @@ I just like building cool stuff for people who need it.
 - Linux system hardening and automation
 
 **Tools and Platforms**:  
-- Observability Tools (Dynatrace, OpenSearch, ELK Stack)  
+- Observability Tools (OpenSearch, ELK Stack)  
 
 **Leadership and Training**:  
 - Team mentorship and workshop organization  
@@ -56,70 +56,41 @@ Denver, CO | Graduated in 2016
 - Associate of Applied Science in Computer Information Systems
 - Certificate in Computer Technology
 
-## Experience
+## Recent Experience
 
 #### Cybersecurity Platform Architect | MSU Denver - The Cybersecurity Center
 Denver, CO | October 2023 - Present
 
-- Designed an edge Kubernetes system with nodes deployed on customer networks; students push detection rules via GitOps using isolated namespaces.
-- Led the transition from Project PISCES to Centurion Secured, deploying core infrastructure (Suricata, OpenSearch, WireGuard) for a new SOC.
-- Migrated all infrastructure from Linode to DigitalOcean, optimizing for cost, performance, and maintainability.
-- Deployed ArgoCD from scratch to support GitOps workflows for student-facing applications.
-- Containerized and deployed Moodle on Kubernetes for centralized training content and lab delivery.
-- Founded the Open Source Initiative, pairing student developers with student security analysts to build internal tools.
-- Built and maintained CI/CD pipelines using GitHub Actions, Jenkins, and Docker for application and rule deployment.
-- Provided hands-on Kubernetes training to students, bridging academic concepts with real-world production workflows.
-- Mentored Tier 1 and Tier 2 analysts in log analysis, incident response, and cybersecurity fundamentals.
-- Led 30+ training sessions and technical workshops covering infrastructure, automation, and SOC tooling.
-- Managed DigitalOcean budgets and cloud infrastructure for both The Cybersecurity Center and Centurion Secured operations.
-
-Tools & platforms: ArgoCD, Kubernetes (k3s), Docker, GitHub Actions, Jenkins, Suricata, OpenSearch, WireGuard, FreeIPA, Moodle, Debian, AWS, Bash, DigitalOcean, Linode
+- Moved infrastructure to DigitalOcean Kubernetes, cut downtime and manual ops via GitOps
+- Containerized Moodle for student training, used in CI/CD pipeline to teach deployment in real-world conditions
+- Ran hands-on Kubernetes training, up-skilled students in real-world app deployment and cluster ops
+- Delivered CompTIA A+ training with custom labs, improved student engagement and exam readiness
+- Built and deployed OpenSearch-based SIEM in 66 days using Raspberry Pi collectors for live network data across 12 community partners
 
 #### Technical Product Specialist | Dynatrace
 Denver, CO | June 2023 - December 2023
 
-- Provided technical support to customers via chat, managing up to 6 concurrent chats to address and resolve Dynatrace-related issues.
-- Assisted customers in crafting DQL (Dynatrace Query Language) queries during chat sessions.
-- Led training sessions for customers, guiding them through the implementation and utilization of Dynatrace in their respective environments.
-- Implemented side projects focused on implementing Dynatrace monitoring for Kubernetes clusters.
-- Completed a six-month training program preparing for the Technical Product Specialist role.
-- Managed up to 4 concurrent support chats while undergoing training to address and resolve Dynatrace-related issues.
-- Demonstrated technical proficiency by implementing diverse application stacks and effectively instrumenting them with Dynatrace in Kubernetes and OpenShift environments, highlighting expertise in performance monitoring and optimization.
-- Developed custom Dynatrace plugins using Python to monitor Windows Management Instrumentation (WMI), showcasing innovation and technical skill in extending Dynatrace's monitoring capabilities.
-- Designed and implemented a deployment script for Windows-based hosts to facilitate the deployment of Dynatrace OneAgent.
-
-Tools & platforms: Dynatrace OneAgent, Dynatrace Managed, AWS, Azure, GCP, REST APIs, Linux, OpenTelemetry
+- Supported 7+ customers at once via live chat, resolved monitoring issues in real time during 6-hour shifts
+- Designed dashboards and alerting rules that sped up root cause analysis of high-impact incidents
+- Graduated PDP 368, 6-month program in Dynatrace tech and customer success strategy
+- Uncovered DavisAI JavaScript injection flaw, disclosure led to platform security improvements
+- Containerized a multiplayer Snake game, deployed via Jenkins, and instrumented with Dynatrace to showcase full-stack observability skills
 
 #### Web Content Designer | MSU Denver - C2C Hub
 Denver, CO | August 2021 - March 2022
 
-- Led the project to transition and standardize 15 Classroom to Career Hub webpages to WordPress.
-- Collaborated with the 5 student marketing team members to craft compelling social media content for the Classroom to Career Hub. 
-- Captured photographs during events to create unique content for the Classroom to Career Hub webpages, resulting in webpages that distinguished themselves from other university departments.
-- Adapted a legacy JavaScript plugin that displayed events for students to the new WordPress website.
-
-#### Desktop Support Engineer I | Frontier Airlines
-Denver, CO | February 2021 - July 2021
-
-- Investigated and documented IT department procedures to improve efficiency and standardization.
-- Led onboarding sessions for 20 new corporate employees weekly.
-- Managed the troubleshooting and deployment of devices to remote employees across the United States for over 5,000 employees.
-- Provided technical support for escalated issues from the helpdesk team.
-- Implemented Microsoft Intune to manage deployment and inventory tracking of remote devices.
-
-Tools & platforms: Microsoft Intune, PowerShell, Active Directory, SCCM, Windows 10, Surface Devices, Remote Desktop, Zoom
+- Migrated legacy website content to WordPress, ensuring functionality and design consistency
+- Collaborated with graphic designers and photographers to source and integrate multimedia content
+- Rewrote JavaScript calendar plugin for WordPress compatibility, maintaining existing functionality
+- Maintained website performance and implemented responsive design updates to improve user experience
 
 #### Technology Specialist | Cherry Creek School District
 Aurora, CO | January 2019 - September 2020
 
-- Provided technical support for over 250 school faculty and staff.
-- Reduced the workload for the district IT department.
-- Implemented PDQ Deploy on the school server to reduce the time required to deploy new software in a computer lab.
-- Automated inventory processes by implementing PDQ Inventory.
-- Proactively monitored and maintained over 1,000 unique devices, including Chromebooks, Dell desktop computers, iPads, and 3D printers.
-- Acted as a mentor to students by allowing them to assist with departmental tasks.
-
-Tools & platforms: Windows Server 2016, PDQ Deploy, SCCM, Papercut, FileMaker Pro, Google Admin Console, PowerShell, Chromebooks
+- Deployed/repaired Chromebooks and laptops; administered devices via Google Admin Console
+- Used SCCM, InTune, and PDQ Deploy to build and manage Windows images across lab computers, reducing setup
+time, and configuration drift
+- Migrated asset tracking from Excel to a custom Microsoft Access database, improving accuracy and searchability
 
 ## Certifications
 
