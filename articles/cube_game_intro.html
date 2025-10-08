@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducing Ubiquitous Cube Game - Maciej's Dev Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Maciej's Dev Blog</h1>
+            <nav>
+                <a href="/index.html">Home</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/resume.html">Resume</a>
+                <a href="https://github.com/Xata" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/maciejwal/" target="_blank">LinkedIn</a>
+            </nav>
+        </header>
+
+        <main class="content">
+            <div class="article-meta">Posted on March 25, 2024</div>
+<p><img alt="Ubiquitous Cube Game icon" src="../img/cube-game-icon.png" /></p>
+<h2>Introduction</h2>
+<p>I would like to introduce you to my personal project Ubiquitous Cube Game. This game is a Minecraft clone developed in Python using the ModernGL library to create voxels in OpenGL. The goal with this game is to achieve a personal deadline of mine. I've had multiple attempts over the years but never that have gotten this close before. I'm pretty proud of the work done to create what I have so far. </p>
+<p>So far this has been tested on a MacBook Pro with a M2 Pro chip and a desktop PC with a Ryzen 7 2700X and a RX Vega 56 running Windows 11. The game uses modern OpenGL instead of OpenGL 1.0 features that have been deprecated for a long time (since 2008). While OpenGL MAY be on its way out with Vulkan becoming more mainstream, I wanted to able to work on this on my MacBook too. </p>
+<p>You can find the project here: <a href="https://github.com/Xata/ubiquitous-cube-game">Link to ubiquitous-cube-game</a></p>
+<h2>Goals with this project</h2>
+<p>My goal is to create a playable game this year. Eventually I want to add networking features to this game so that a friend can join and explore with you. The goal of this is not to create a commercial title. Just something that demonstrates my Python and OpenGL skills. So far I've taken a basic voxel game engine and made it more game-like. </p>
+<h2>About the game</h2>
+<p>I did not want to reinvent the wheel with this game. My original interation of the voxel engine was slow and was using OpenGL 1.0 features that have long since been deprecated. My launching off point for a more optimized voxel engine was <a href="https://www.youtube.com/watch?v=Ab8TOSFfNp4">Coder Space's Creating a Voxel Engine Tutorial</a>. This tutorial was an excellent guide to creating a more optimized voxel game engine. The OpenGL 3.0+ features helped me a ton too and the explainations helped with wrapping my head around how something was drawn in more modern OpenGL. </p>
+<p>In OpenGL 1.0 you'd define a cube doing something like this:</p>
+<pre class="codehilite"><code class="language-c">static const GLfloat g_vertex_buffer_data[] = {
+    -1.0f,-1.0f,-1.0f, 
+    -1.0f,-1.0f, 1.0f,
+    -1.0f, 1.0f, 1.0f, 
+    1.0f, 1.0f,-1.0f, 
+    -1.0f,-1.0f,-1.0f,
+    -1.0f, 1.0f,-1.0f, 
+    1.0f,-1.0f, 1.0f,
+    -1.0f,-1.0f,-1.0f,
+    1.0f,-1.0f,-1.0f,
+    1.0f, 1.0f,-1.0f,
+    1.0f,-1.0f,-1.0f,
+    -1.0f,-1.0f,-1.0f,
+    -1.0f,-1.0f,-1.0f,
+    -1.0f, 1.0f, 1.0f,
+    -1.0f, 1.0f,-1.0f,
+    1.0f,-1.0f, 1.0f,
+    -1.0f,-1.0f, 1.0f,
+    -1.0f,-1.0f,-1.0f,
+    -1.0f, 1.0f, 1.0f,
+    -1.0f,-1.0f, 1.0f,
+    1.0f,-1.0f, 1.0f,
+    1.0f, 1.0f, 1.0f,
+    1.0f,-1.0f,-1.0f,
+    1.0f, 1.0f,-1.0f,
+    1.0f,-1.0f,-1.0f,
+    1.0f, 1.0f, 1.0f,
+    1.0f,-1.0f, 1.0f,
+    1.0f, 1.0f, 1.0f,
+    1.0f, 1.0f,-1.0f,
+    -1.0f, 1.0f,-1.0f,
+    1.0f, 1.0f, 1.0f,
+    -1.0f, 1.0f,-1.0f,
+    -1.0f, 1.0f, 1.0f,
+    1.0f, 1.0f, 1.0f,
+    -1.0f, 1.0f, 1.0f,
+    1.0f,-1.0f, 1.0f
+};
+</code></pre>
+
+<p>Then you would draw it like this:</p>
+<pre class="codehilite"><code class="language-c">glDrawArrays(GL_TRIANGLES, 0, 12*3);
+</code></pre>
+
+<p>Now in more modern OpenGL we create a cube/voxel by first defining our vertices and indices:</p>
+<pre class="codehilite"><code class="language-python">    vertices = [
+        (0, 0, 1), (1, 0, 1), (1, 1, 1), (0, 1, 1),
+        (0, 1, 0), (0, 0, 0), (1, 0, 0), (1, 1, 0)
+    ]
+    indices = [
+        (0, 2, 3), (0, 1, 2),
+        (1, 7, 2), (1, 6, 7),
+        (6, 5, 4), (4, 7, 6),
+        (3, 4, 5), (3, 5, 0),
+        (3, 7, 4), (3, 2, 7),
+        (0, 6, 1), (0, 5, 6)
+    ]
+</code></pre>
+
+<p>Then we return it as a NumPy array for that sweet sweet resource saving. To draw the cube we then have to take our vertex data in the form of a NumPy array and then create a Vertex Array Object and pass that into a vertex buffer object so that the GPU can render this in our window later. </p>
+<p>Anyway, that is enough ranting about OpenGL on my end. I just found the process so interesting when compared to the old ways of doing things on the GPU. Although the OpenGL 1.0 stuff would be great to know if one was to develop a game for a legacy OS like Windows 98.</p>
+<h3>More about the game</h3>
+<p>The game engine uses the tools from the OpenSimplex library to generate noise and then applies it the rendered chunks. 
+Below is a screenshot of the world being rendered:
+<img alt="Ubiquitous Cube Game world generation" src="../img/cube-game-screenshot-00.jpg" /></p>
+<p>Currently, everytime you load into the game you will get an entirely brandnew world that is generated. The seed gets printed to the Python console. Right now you can fly around and place certain blocks. I have several blocks that can be placed as of writing:</p>
+<p><img alt="Ubiquitous Cube Game blocks" src="../img/cube-game-screenshot-01.jpg" /></p>
+<p>Here I have created a basic house using the blocks I've added into the game:</p>
+<p><img alt="Ubiquitous Cube Game blocks" src="../img/cube-game-screenshot-03.jpg" /></p>
+<h4>Table of Current blocks</h4>
+<table>
+<thead>
+<tr>
+<th>Block name</th>
+<th>Block ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VOID</td>
+<td>0</td>
+</tr>
+<tr>
+<td>SAND</td>
+<td>1</td>
+</tr>
+<tr>
+<td>GRASS</td>
+<td>2</td>
+</tr>
+<tr>
+<td>DIRT</td>
+<td>3</td>
+</tr>
+<tr>
+<td>STONE</td>
+<td>4</td>
+</tr>
+<tr>
+<td>SNOW</td>
+<td>5</td>
+</tr>
+<tr>
+<td>LEAVES</td>
+<td>6</td>
+</tr>
+<tr>
+<td>WOOD</td>
+<td>7</td>
+</tr>
+<tr>
+<td>COAL_ORE</td>
+<td>8</td>
+</tr>
+<tr>
+<td>RAW_COAL_BLOCK</td>
+<td>9</td>
+</tr>
+<tr>
+<td>COPPER_ORE</td>
+<td>10</td>
+</tr>
+<tr>
+<td>RAW_COPPER_BLOCK</td>
+<td>11</td>
+</tr>
+<tr>
+<td>TIN_ORE</td>
+<td>12</td>
+</tr>
+<tr>
+<td>RAW_TIN_BLOCK</td>
+<td>13</td>
+</tr>
+<tr>
+<td>WOOD_BLOCK</td>
+<td>14</td>
+</tr>
+<tr>
+<td>BASIC_CRAFTING_TABLE</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<h2>Next steps</h2>
+<p>The next steps for me will be adding an entity system so that the player can collect blocks that they mine. I'm changing the code so that it the destroyed blocks will drop an entity on the ground, just like in Minecraft that the player can pickup. Also to add is to track how many blocks that the player has collected. Adding a menu is also on the menu. Get it? (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</p>
+<p>Anyway, I'm really excited to be working on this and I have several resources on the way to help me with my shaders too.</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2024-2025 Maciej Wal. Built with Python and simplicity.</p>
+        </footer>
+    </div>
+</body>
+</html>

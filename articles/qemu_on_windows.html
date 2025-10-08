@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an Ubuntu VM on Windows 11 with QEMU - Maciej's Dev Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Maciej's Dev Blog</h1>
+            <nav>
+                <a href="/index.html">Home</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/resume.html">Resume</a>
+                <a href="https://github.com/Xata" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/maciejwal/" target="_blank">LinkedIn</a>
+            </nav>
+        </header>
+
+        <main class="content">
+            <div class="article-meta">Posted on April 22, 2024</div>
+<h1>Basic QEMU on Windows 11</h1>
+<p>I'm excited to share a quick guide on how to run QEMU on Windows 11. QEMU is a powerful open-source virtual machine monitor and emulator that allows you to run a virtualized guest operating system on your host machine. In the past I've used Oracle's Virtual Box and Microsoft Hyper-V to virtualize guests on my desktop computer. However, QEMU is a much more powerful tool. I've been pushing the people around me to be more comfortable with using the command-line on their machines. One of the barriers that people see with QEMU is that it is completely command-line based. There is no "out-of-the-box" GUI for QEMU on Windows, although 3rd party wrappers do exist out there. </p>
+<p>In this guide we will be quickly setting up QEMU on a Windows 11 system and then running an Ubuntu virtual machine from the command line. </p>
+<h2>The Guide</h2>
+<h3>Download and install QEMU</h3>
+<p>Download the required software. This guide does not cover compiling the source for QEMU on Windows 11. You can find the binaries and installers from Stegan Weil here:
+- https://qemu.weilnetz.de/w64/</p>
+<p>Follow the on-screen instructions to complete the installation process. By default, QEMU will be installed in the Program Files directory on your Windows 11 system. You will end up with a directory that looks like this:
+<img alt="QEMU directory on Windows 11" src="../img/qemu_guide_01.jpg" /></p>
+<p>Yikes! So what do we do with all of this? If you have Windows Terminal installed on your computer, you'll be able to right-click and open the directory in a new Terminal window. </p>
+<h3>Create the virtual machine</h3>
+<h4>Download Ubuntu Server</h4>
+<p>Now make sure to have a ISO image of Ubuntu Server 22.04.4 LTS. In this guide we are going to be spinning this up from the command-line. You can download the ISO image from here:
+- https://ubuntu.com/download/server/thank-you?version=22.04.4&amp;architecture=amd64</p>
+<h4>Create a virtual disk</h4>
+<p>Once that is installed in your terminal window, run the following command:</p>
+<pre class="codehilite"><code class="language-powershell">.\qemu-img.exe create -f qcow2 ubuntu-test.img 32G
+</code></pre>
+
+<p>Here is a quick breakdown of what we just did:</p>
+<pre class="codehilite"><code class="language-powershell">.\qemu-img.exe
+</code></pre>
+
+<ul>
+<li>This is the command-line tool provided by QEMU for creating, converting, and managing disk images.</li>
+</ul>
+<pre class="codehilite"><code class="language-powershell">create -f qcow2
+</code></pre>
+
+<ul>
+<li>This is the subcommand of qemu-img used to create a new disk image. This option specifies the format of the disk image to be created. We've set it to "qcow2", which stands for QEMU Copy-On-Write version 2. QCOW2 is a disk image format that supports advanced features like snapshots and encryption.</li>
+<li>You can find more information on the QCOW2 format here: https://github.com/zchee/go-qcow2/blob/master/docs/specification.md<ul>
+<li>Note: The original documentation seems to be removed from GitHub. </li>
+</ul>
+</li>
+</ul>
+<pre class="codehilite"><code class="language-powershell">ubuntu-test.img
+</code></pre>
+
+<ul>
+<li>This is the name of the image.</li>
+</ul>
+<pre class="codehilite"><code class="language-powershell">32G
+</code></pre>
+
+<ul>
+<li>This is the size of the image.</li>
+</ul>
+<h4>Create the virtual machine and install Ubuntu</h4>
+<p>Now with the disk image created. It we can install the operating system. In the same directory in the terminal window, run the following command:</p>
+<pre class="codehilite"><code class="language-powershell">.\qemu-system-x86_64.exe -boot d -cdrom &quot;C:\Users\squishy\Desktop\ubuntu-22.04.4-live-server-amd64.iso&quot; -drive file=ubuntu-test.img,format=qcow2 -m 4G -display sdl -accel tcg -net nic,model=virtio -net user -vga std
+</code></pre>
+
+<p>You'll get a window that looks like this:
+<img alt="QEMU SDL Window" src="../img/qemu_guide_02.jpg" /></p>
+<p>While Ubuntu is installing, your screen will look like this:
+<img alt="QEMU SDL Window 2" src="../img/qemu_guide_03.jpg" /></p>
+<p>Wait for the machine to boot. We'll then configure the Ubuntu VM. When you're all done, your screen should look like the following:
+<img alt="QEMU SDL Window 2" src="../img/qemu_guide_04.jpg" /></p>
+<h5>Explaining the command</h5>
+<pre class="codehilite"><code class="language-powershell">.\qemu-system-x86_64.exe -boot d -drive file=ubuntu-test.img,format=qcow2 -m 4G -display sdl -accel tcg -net nic,model=virtio -net user -vga std
+</code></pre>
+
+<pre class="codehilite"><code class="language-powershell">-boot d
+</code></pre>
+
+<ul>
+<li>This flag specifies that the VM should boot from the first bootable device.</li>
+</ul>
+<pre class="codehilite"><code class="language-powershell">-drive file=ubuntu-test.img,format=qcow2
+</code></pre>
+
+<ul>
+<li>This option adds a drive to the virtual machine. Here, file=ubuntu-test.img specifies the disk image file (ubuntu-test.img), and format=qcow2 specifies the format of the disk image.</li>
+</ul>
+<pre class="codehilite"><code class="language-powershell">-m 4G
+</code></pre>
+
+<ul>
+<li>This sets the amount of memory (RAM) allocated to the virtual machine to 4 GB.</li>
+</ul>
+<pre class="codehilite"><code class="language-powershell">-display sdl
+</code></pre>
+
+<ul>
+<li>This sets the display to use the Simple DirectMedia Layer (SDL) for output.</li>
+</ul>
+<pre class="codehilite"><code class="language-powershell">-net nic,model=virtio -net user
+</code></pre>
+
+<ul>
+<li>These options set up networking for the virtual machine.</li>
+</ul>
+<pre class="codehilite"><code class="language-powershell">-vga std
+</code></pre>
+
+<ul>
+<li>This sets the type of VGA adapter to use.</li>
+</ul>
+<h4>Run virtual machine</h4>
+<p>Once Ubuntu server was installed, you'll be able to run your virtual machine with this command:</p>
+<pre class="codehilite"><code class="language-powershell">.\qemu-system-x86_64.exe -boot d -drive file=ubuntu-test.img,format=qcow2 -m 4G -display sdl -accel tcg -net nic,model=virtio -net user -vga std
+</code></pre>
+
+<p>You can also create a shortcut to this using the following settings under Target:</p>
+<pre class="codehilite"><code>&quot;C:\Program Files\qemu\qemu-system-x86_64.exe -boot d -drive file=ubuntu-test.img,format=qcow2 -m 4G -display sdl -accel tcg -net nic,model=virtio -net user -vga std&quot;
+</code></pre>
+
+<p><img alt="Shortcut settings" src="../img/qemu_guide_05.jpg" /></p>
+<p>Note: Be sure to run the shortcut as admin! </p>
+<p>Here is the finished Ubuntu VM running on QEMU:
+<img alt="Finished product" src="../img/qemu_guide_neofetch.jpg" /></p>
+<h2>Thoughts</h2>
+<p>Thank you for checking out my guide on creating a simple Ubuntu VM using QEMU on Windows 11. QEMU's built-in accelerator is really slow. Attempting to enable Windows Hyper-V support seems to be broken at the moment with the current binaries and Intel has dropped support for HAXM. This makes running x86-64 based machines with QEMU really slow at the moment. </p>
+        </main>
+
+        <footer>
+            <p>&copy; 2024-2025 Maciej Wal. Built with Python and simplicity.</p>
+        </footer>
+    </div>
+</body>
+</html>

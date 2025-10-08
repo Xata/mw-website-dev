@@ -1,0 +1,4 @@
+Contact: mailto:thesquishyshark@proton.me
+Expires: 2026-10-08T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://mwal.dev/.well-known/security.txt

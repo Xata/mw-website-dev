@@ -1,0 +1,14 @@
+/* TEAM */
+Developer: Maciej Wal
+Site: https://mwal.dev
+Location: Denver, CO
+GitHub: https://github.com/Xata
+
+/* THANKS */
+Inspired by the simplicity of 1990s and early 2000s personal websites
+
+/* SITE */
+Last update: 2025-10-08
+Standards: HTML5, CSS3
+Components: Python, Markdown, Make
+Software: Custom Python Static Site Generator

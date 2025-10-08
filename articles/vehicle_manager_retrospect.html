@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrospective: vehiclemanager - Maciej's Dev Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Maciej's Dev Blog</h1>
+            <nav>
+                <a href="/index.html">Home</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/resume.html">Resume</a>
+                <a href="https://github.com/Xata" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/maciejwal/" target="_blank">LinkedIn</a>
+            </nav>
+        </header>
+
+        <main class="content">
+            <div class="article-meta">Posted on March 24, 2024</div>
+<h1>Retrospective: vehiclemanager</h1>
+<p>In this post I look back at my first public GitHub project:</p>
+<p><img alt="GitHub" src="../img/vehicle_manager_retrospective_00.png" /></p>
+<h2>Link to project</h2>
+<p>You can find a link to vehiclemanager here: <a href="https://github.com/Xata/vehiclemanager">GitHub Link</a></p>
+<h2>Before the project</h2>
+<p>In 2022, I was nearing the end of my second-to-last semester at MSU Denver. I had come to the realization that the curriculum for my program had not adequately prepared me for any job requiring coding skills. We had taken a Python course but the end result was a basic CRUD application that you interacted with in the command line. I was too far into the Computer Information Systems program to switch to Computer Science at this point so I needed to stick it out. </p>
+<p>This program, vehiclemanager, stemmed from my recognition of the need for a tangible project on my GitHub profile, one that could demonstrate my proficiency in Python programming. Personally, if my business Python programming course wanted to better prepare us for work, we should have created a deployable CRUD application using FastAPI, Django, or Flask. A project that had some sort of basic business function. </p>
+<h2>Looking at the project</h2>
+<p>This project is a spin on a note-taking app. This allows a user to store information about their friends' vehicles. Originally, this started out as a FastAPI application in 2022 but I had revamped it to use Flask towards the end of 2023. Unlike the original FastAPI application, this one is deployable with a Docker container. </p>
+<h3>Cloning the repo</h3>
+<p>To deploy this project I scrolled down to the bottom of the readme to grab the instructions to deploy the project. It's been a hot moment since I’ve deployed this so I proceed to clone the project from the GitHub repo:</p>
+<pre class="codehilite"><code class="language-bash">git clone https://github.com/Xata/vehiclemanager.git
+</code></pre>
+
+<h3>Running the app</h3>
+<p>Following the instructions. We need to create a virtual environment:</p>
+<pre class="codehilite"><code class="language-bash">cd vehiclemanager
+python3 -m venv .venv
+source venv/bin/activate
+pip install -r requirements.txt
+</code></pre>
+
+<p>Then we run the program to take a look at things:</p>
+<pre class="codehilite"><code class="language-bash">python3 main.py
+</code></pre>
+
+<h3>App Demo</h3>
+<p>First off, I notice that this would not be production ready. While I realize that this is a student demo. I think it would have been better to make it more production ready. I had a handy note in the readme file:</p>
+<pre class="codehilite"><code>⚠️ Do not deploy in production environment.
+</code></pre>
+
+<p>Upon running someone will be met with this message:</p>
+<p><img alt="GitHub" src="../img/vehicle_manager_retrospective_02.jpg" /></p>
+<p>Note: I decided to mask the internal IP address. I know technically you don't need to but security by obscurity just makes people's lives a smidge harder. </p>
+<p>When navigating to the default webpage I can see the login page:
+<img alt="Login page" src="../img/vehicle_manager_retrospective_01.jpg" /></p>
+<p>However, the hamburger menu is broken if you have the webpage not completely expanded. In order to actually make an account you need to make the webpage full-screen to see the sign-up menu:
+<img alt="Sign-up page" src="../img/vehicle_manager_retrospective_03.jpg" /></p>
+<p>After creating an account we can add a vehicle or manage. However, the buttons on the landing page don't work. One needs to navigate to the navbar at the top and use the drop down menu to add a new vehicle:</p>
+<p><img alt="Main page" src="../img/vehicle_manager_retrospective_04.jpg" /></p>
+<p>Shoot, oh well. These the functionality of these buttons can be fixed later. </p>
+<p>When we're finally in this menu we can see all the different options to add a vehicle to the database. Here we can add a new vehicle to the sqlite database:
+<img alt="Add vehicle screen" src="../img/vehicle_manager_retrospective_05.jpg" /></p>
+<p>Once done. We can see the list of vehicles on the landing screen. This only displays the Year, Make, and Model. You can delete the vehicle from this page by clicking the trashcan icon. This button does work on the page:
+<img alt="Demo page" src="../img/vehicle_manager_retrospective_06.jpg" /></p>
+<h2>Changes I would make now</h2>
+<p>The app is very simple. There are some pieces that do not work like the two buttons on the homepage that don't do anything. I remember feeling like I needed to rewrite everything to work with Flask instead of FastAPI. The FastAPI portion is still on the GitHub but it didn't work with Docker. </p>
+<h4>First change</h4>
+<p>One glaring thing I noticed is that the app is listening on 0.0.0.0. In main.py we are passing the following:</p>
+<pre class="codehilite"><code class="language-python">from app import create_app
+
+app = create_app()
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
+</code></pre>
+
+<p>This was done because I was in a rush to get the app working in a container in any capacity. I would now instead use an variable inside of a .env to pass through to the container so that the app listens on a specific IP address. </p>
+<h4>Second change</h4>
+<p>I need to fix the buttons on the main page. My first instinct upon firing up this app was to click the buttons that didn't do anything:</p>
+<p><img alt="Main page" src="../img/vehicle_manager_retrospective_04.jpg" /></p>
+<p>I need to fix these buttons so that they work. </p>
+<h2>Conclusion</h2>
+<p>Overall this is a very basic CRUD application that is missing some features. Regardless, I think this is a good start to something more interesting. I'm going to implement my changes to get it to a better place and go from there.</p>
+<p>Thank you for reading!</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2024-2025 Maciej Wal. Built with Python and simplicity.</p>
+        </footer>
+    </div>
+</body>
+</html>

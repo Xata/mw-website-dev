@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Deep Dive: Optimizing Ubiquitous Cube Game - Maciej's Dev Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Maciej's Dev Blog</h1>
+            <nav>
+                <a href="/index.html">Home</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/resume.html">Resume</a>
+                <a href="https://github.com/Xata" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/maciejwal/" target="_blank">LinkedIn</a>
+            </nav>
+        </header>
+
+        <main class="content">
+            <div class="article-meta">Posted on October 07, 2025</div>
+<p><img alt="Ubiquitous Cube Game world" src="../img/cube-game-screenshot-00.jpg" /></p>
+<h2>Performance is king</h2>
+<p>I've been working on optimizing the voxel engine for Ubiquitous Cube Game and wanted to share some of the technical decisions that went into making it run at 100+ FPS. When you're rendering thousands of voxels in real-time, every optimization matters. Here's what I learned about squeezing performance out of Python and OpenGL.</p>
+<h2>The JIT compilation breakthrough</h2>
+<p>One of the biggest wins came from using Numba's <code>@njit</code> decorator on the hot paths. The mesh building and terrain generation code gets called constantly, so I needed them to run at C-like speeds. Numba's JIT compilation takes Python code and compiles it to native machine code at runtime. For the greedy meshing algorithm alone, I saw a 10x speedup.</p>
+<p>Here's the key: you have to design your data structures with Numba in mind. That means using flat NumPy arrays instead of nested Python data structures. Cache efficiency matters when you're processing thousands of chunks.</p>
+<h2>Greedy meshing and why it matters</h2>
+<p>The greedy meshing algorithm is probably the most important optimization in the whole engine. Instead of drawing a cube for every single voxel, we only generate geometry for faces that are adjacent to empty space. If a voxel is completely surrounded by other voxels, we don't waste GPU resources rendering it.</p>
+<p>The algorithm "greedily" combines adjacent faces of the same type into larger quads. This reduces the vertex count dramatically. A 32x32x32 chunk could theoretically have 32,768 voxels, but with greedy meshing we're only rendering the surfaces.</p>
+<h2>Packing vertex data tight</h2>
+<p>Memory bandwidth is expensive. I pack 7 vertex attributes into a single <code>uint32</code> per vertex. This includes position, normal, texture coordinates, and ambient occlusion data. The GPU unpacks these in the vertex shader using bit manipulation.</p>
+<pre class="codehilite"><code class="language-glsl">// Unpack position from packed data
+vec3 position = vec3(
+    float((packedData &gt;&gt; 0) &amp; 0x3F),
+    float((packedData &gt;&gt; 6) &amp; 0x3F),
+    float((packedData &gt;&gt; 12) &amp; 0x3F)
+);
+</code></pre>
+
+<p>Tighter data means better cache utilization, both on the CPU and GPU sides.</p>
+<h2>Chunk system and frustum culling</h2>
+<p>The world is divided into 32³ voxel chunks. Each chunk gets its own mesh, model matrix, and an "empty" flag for quick rejection. I have 27,000 total chunks managed by the world container (30×3×30 chunks).</p>
+<p>But here's the thing: we don't render all 27,000 chunks every frame. Frustum culling tests which chunks are actually visible to the camera using sphere-AABB intersection tests. Only visible chunks get submitted to the GPU. This easily cuts rendering work by 70-80% depending on where you're looking.</p>
+<h2>Two-pass rendering for transparency</h2>
+<p>Water is transparent, but transparency in 3D rendering is tricky. You need to render opaque objects first (with depth writing enabled), then render transparent objects sorted back-to-front (with depth testing but no depth writing).</p>
+<p>I implemented a two-pass pipeline:
+1. First pass: solid geometry with full depth buffer writes
+2. Second pass: transparent water with depth test only</p>
+<p>The water shader has some nice effects too - Fresnel reflections, animated wave ripples using time-based UV offsets, and volumetric fog that gets denser with depth. All running in GLSL.</p>
+<h2>Cross-platform pain points</h2>
+<p>Getting this to work on both Windows and macOS was interesting. macOS caps OpenGL at 4.1, which is already deprecated by Apple. Some features I wanted to use just aren't available. I had to create a compatibility layer that works with the lowest common denominator while still using modern OpenGL features like VAOs and VBOs.</p>
+<p>Also, ModernGL makes cross-platform development way easier than raw PyOpenGL. I just had to point it at the right OpenGL version and it handles the context creation.</p>
+<h2>Why this matters for platform engineering</h2>
+<p>You might be wondering what a voxel game engine has to do with infrastructure work. Here's the thing: performance optimization is performance optimization. Whether you're optimizing render loops or optimizing Kubernetes resource allocation, the principles are the same:</p>
+<ul>
+<li>Profile first, optimize second. Don't guess where the bottlenecks are.</li>
+<li>Memory layout matters. Cache-friendly data structures make everything faster.</li>
+<li>Batch operations when possible. The GPU wants large batches, and so does your database.</li>
+<li>Spatial partitioning works for voxels and for distributed systems.</li>
+</ul>
+<p>I've used the same performance mindset when optimizing Fluent-bit configurations and tuning OpenSearch cluster performance at work. The tools change but the thinking doesn't.</p>
+<h2>What's next</h2>
+<p>Right now I'm working on adding an entity system for dropped items. When you break a block, it should drop as an entity that you can pick up. I also need to add a proper inventory system and a pause menu.</p>
+<p>The code is up on GitHub if you want to check it out: <a href="https://github.com/Xata/ubiquitous-cube-game">ubiquitous-cube-game</a></p>
+<p>Anyway, that's the breakdown. Performance optimization is fun when you can actually see the FPS counter go up. ᕕ( ᐛ )ᕗ</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2024-2025 Maciej Wal. Built with Python and simplicity.</p>
+        </footer>
+    </div>
+</body>
+</html>
