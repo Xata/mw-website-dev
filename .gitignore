@@ -1,6 +1,7 @@
-# Ignore notes.md
-notes.md
-instructions.md
+# Ignore LaTeX and .PDF files
+*.tex
+*.pdf
+
 
 # Ignore the output folder to save space
 output/
@@ -191,3 +192,10 @@ Temporary Items
 
 # Ignore Deployment notes file
 deployment_note.txt
+
+# Ignore notes
+notes.md
+CLAUDE.md
+instructions.md
+notes/
+*.notes
