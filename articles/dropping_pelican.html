@@ -22,11 +22,11 @@
         <main class="content">
             <div class="article-meta">Posted on October 08, 2025</div>
 <h1>I Miss Simple Websites</h1>
-<p>I rebuilt this website using a custom static site generator I wrote in Python. The whole thing is about 200 lines of code. No plugins, no themes, no config files. Just Python, Make, and Markdown.</p>
+<p>I rebuilt this website using a custom static site generator I wrote in Python. The whole thing is about 280 lines of code. No plugins, no themes, no config files. Just Python, Make, and Markdown.</p>
 <h2>Why?</h2>
-<p>I originally built this site with <a href="https://getpelican.com/">Pelican</a>. Pelican is great—it's well-designed, actively maintained, and has a solid plugin ecosystem. If you're building a Python blog, you should check it out.</p>
-<p>But I kept thinking about geocities. Those janky personal homepages from the late 90s where you'd edit HTML in Notepad, upload it via FTP, and suddenly have a website. I missed that directness.</p>
-<p>With Pelican, I had <code>pelicanconf.py</code>, <code>publishconf.py</code>, theme directories, and plugin folders. For a portfolio with maybe a dozen posts, it felt like overkill. I wanted something simpler.</p>
+<p>I originally built this site with <a href="https://getpelican.com/">Pelican</a>. Pelican is great. Very well-designed, actively maintained, and has a solid plugin ecosystem. If you're building a blog or a website, you should check it out.</p>
+<p>But I kept thinking about geocities. Those janky personal homepages from the late 90s where you'd edit HTML in Notepad, upload it via FTP, and suddenly have a website. I really miss that directness.</p>
+<p>With Pelican, I had <code>pelicanconf.py</code>, <code>publishconf.py</code>, theme directories, and plugin folders. For a portfolio with maybe a dozen posts, it felt like overkill. I wanted something way way simpler.</p>
 <h2>Building My Own</h2>
 <p>What does a static site generator actually need to do for a simple blog?</p>
 <ol>
@@ -51,7 +51,7 @@ import markdown
 - Injects content into a single template
 - Generates a blog index sorted by date
 - Copies images and static files</p>
-<p>No configuration files. If I want to change something, I edit <code>build.py</code> or the template.</p>
+<p>No configuration files. If I want to change something, I edit <code>build.py</code> or the template. Pure python.</p>
 <h2>The Template</h2>
 <p>One template file: <code>templates/base.html</code>. Two placeholders:</p>
 <pre class="codehilite"><code class="language-html">&lt;title&gt;{{ title }}&lt;/title&gt;
@@ -59,8 +59,9 @@ import markdown
 &lt;main&gt;{{ content }}&lt;/main&gt;
 </code></pre>
 
-<p>CSS is inline. The whole template is about 100 lines. It's responsive, supports dark mode via <code>prefers-color-scheme</code>, and uses system fonts. No JavaScript.</p>
+<p>CSS is lives in <code>content/templates/styles.css</code>. The whole template is about 100 lines. No JavaScript (I don't like JavaScript but I can't seem to avoid it).</p>
 <h2>The Makefile</h2>
+<p>This was the first time I wrote my own Makefile. I actually enjoyed learning about this. I didn't know you could use Makefiles like this. </p>
 <pre class="codehilite"><code class="language-makefile">build:
     python build.py
 
@@ -71,30 +72,38 @@ clean:
     rm -rf output/
 </code></pre>
 
-<p>Three commands.</p>
-<h2>What I Lost</h2>
+<p>Now you just have three commands to use when developing or previewing pages:</p>
+<pre class="codehilite"><code class="language-zsh">make build
+make serve
+make clean
+</code></pre>
+
+<h2>Articles</h2>
+<p>I kept the format that Pelican was using for articles. Maybe at some point I will add more functionality to parse through the other fields. Until then though, they exist. Why not? I don't feel like going back through them all. Maybe I can make an LLM do it? </p>
+<h2>What I lost</h2>
 <ul>
 <li>No RSS/Atom feeds</li>
 <li>No tag pages or category pages</li>
 <li>No pagination</li>
 <li>No i18n support</li>
 <li>No plugin ecosystem</li>
+<li>No community support</li>
 </ul>
-<p>For a personal portfolio, none of this matters.</p>
+<p>For my personal website, I don't think any of this really matters too much. It would be nice to have RSS/Atoms feeds but that would mean modifying my <code>robots.txt</code>. Which ehhh, I don't want to do. </p>
 <h2>What I Gained</h2>
 <ul>
 <li><strong>Understanding</strong>: I know exactly how it works</li>
-<li><strong>Speed</strong>: Build is instant</li>
+<li><strong>Speed</strong>: Build is almost instant</li>
 <li><strong>Simplicity</strong>: One Python file, one template, one Makefile</li>
 <li><strong>Control</strong>: Want to change something? Edit 200 lines of Python</li>
 <li><strong>Dependencies</strong>: Just <code>Markdown==3.9</code> in requirements.txt</li>
 </ul>
-<p>When something breaks, I just read <code>build.py</code>. No digging through framework docs.</p>
+<p>When something breaks, I can just read <code>build.py</code>. No digging through any framework docs or using an LLM as a crutch. </p>
 <h2>Conclusion</h2>
-<p>Use Pelican if you're building a blog. It's genuinely good software.</p>
-<p>But this project wasn't about finding a "better" solution. It was pure nostalgia. I wanted that geocities feeling of just making something without learning a framework first.</p>
+<p>Use Pelican if you're building a blog. It's a really cool Python static site generator.</p>
+<p>But this project wasn't about finding a "better" solution. It was pure nostalgia. I wanted that geocities feeling of just making something without learning a framework first. I want the internet to be fun and owned by individuals again (ironic since I'm hosting this on GitHub Pages).</p>
 <p>You can check out the source on my GitHub. The entire generator fits in one file.</p>
-<p>Thank you for reading!</p>
+<p>Thank you so much for reading!</p>
         </main>
 
         <footer>
