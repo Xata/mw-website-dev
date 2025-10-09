@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Making Zammad Play Nice with Keycloak Groups - Maciej's Dev Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Maciej's Dev Blog</h1>
+            <nav>
+                <a href="/index.html">Home</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/resume.html">Resume</a>
+                <a href="https://github.com/Xata" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/maciejwal/" target="_blank">LinkedIn</a>
+            </nav>
+        </header>
+
+        <main class="content">
+            <div class="article-meta">Posted on October 09, 2025</div>
+<h1>Making Zammad Play Nice with Keycloak Groups</h1>
+<p>I recently spent way too much time figuring out how to make Zammad automatically assign roles based on Keycloak groups. Turns out, Zammad's OIDC integration doesn't do this out of the box. Every user who logs in via SSO gets stuck with the "Customer" role, regardless of what groups they're in.</p>
+<p>This was... not ideal.</p>
+<h2>The Problem</h2>
+<p>Here's the setup: Zammad for ticketing, Keycloak for identity management, OIDC to tie them together. Users can log in just fine, but Zammad has no idea if they're supposed to be an admin, an agent, or just a customer. It just defaults everyone to "Customer" and calls it a day.</p>
+<p>I needed users in specific Keycloak groups (like <code>/admins</code> or <code>/support/tier2</code>) to automatically get the right Zammad roles. No manual clicking around in the admin panel after every new user signs in.</p>
+<h2>Why This Matters</h2>
+<p>If you're running a helpdesk or support system with tiered access (tier 1 support, tier 2, admins, etc.), you don't want to manually assign Zammad roles every time someone new logs in. You want it to just work based on your existing identity provider.</p>
+<p>Keycloak already knows who's who. Zammad really really should too (Hehe, see what I did there?).</p>
+<h2>The Solution</h2>
+<p>Since Zammad doesn't natively support this, I wrote a Ruby script that:</p>
+<ol>
+<li>Decodes the JWT token from OIDC authentication</li>
+<li>Extracts the <code>groups</code> claim from Keycloak</li>
+<li>Maps those groups to Zammad roles</li>
+<li>Runs automatically via cron every 5 minutes</li>
+</ol>
+<p>The script lives on the Zammad server and syncs roles in the background. Works great.</p>
+<h2>How It Works</h2>
+<h3>Step 1: Configure Keycloak</h3>
+<p>First, make sure your Keycloak client is sending group information in the token. You need a <strong>Groups Mapper</strong>:</p>
+<ul>
+<li>Mapper Type: <code>Group Membership</code></li>
+<li>Token Claim Name: <code>groups</code></li>
+<li>Add to ID token: ✓</li>
+<li>Add to access token: ✓</li>
+<li>Add to userinfo: ✓</li>
+</ul>
+<p>This tells Keycloak to include group memberships in the JWT token when users authenticate.</p>
+<h3>Step 2: Enable OIDC in Zammad</h3>
+<p>SSH into your Zammad server and open the Rails console:</p>
+<pre class="codehilite"><code class="language-bash">sudo zammad run rails c
+</code></pre>
+
+<p>Configure OIDC:</p>
+<pre class="codehilite"><code class="language-ruby"># Enable OIDC
+Setting.set('auth_openid_connect', true)
+
+# Configure credentials
+config = Setting.get('auth_openid_connect_credentials')
+config[:display_name] = 'SSO Login'
+config[:identifier] = 'zammad-client'
+config[:issuer] = 'https://your-keycloak-server/realms/your-realm'
+config[:uid_field] = 'preferred_username'
+config[:scope] = 'openid email profile'
+
+Setting.set('auth_openid_connect_credentials', config)
+</code></pre>
+
+<p>Replace <code>your-keycloak-server</code> and <code>your-realm</code> with your actual Keycloak URL and realm name.</p>
+<h3>Step 3: Decode the JWT to See What You're Working With</h3>
+<p>Before writing the sync script, you need to see what Keycloak is actually sending. In the Rails console:</p>
+<pre class="codehilite"><code class="language-ruby"># Find a user who logged in via OIDC
+user = User.find_by(login: 'someone@example.com')
+auth = user.authorizations.where(provider: 'openid_connect').first
+
+# Decode the JWT token
+require 'json'
+require 'base64'
+
+parts = auth.token.split('.')
+payload = parts[1]
+payload += '=' * (4 - payload.length % 4) if payload.length % 4 != 0
+
+decoded = JSON.parse(Base64.urlsafe_decode64(payload))
+decoded['groups']
+</code></pre>
+
+<p>This will show you the exact format of the groups. Something like:</p>
+<pre class="codehilite"><code class="language-ruby">[&quot;/admins&quot;, &quot;/support/tier1&quot;, &quot;/support/tier2&quot;]
+</code></pre>
+
+<p>Note the format carefully - case sensitivity matters!</p>
+<h3>Step 4: Create Zammad Roles</h3>
+<p>Make sure you have the roles you need in Zammad. Go to <strong>Admin → Manage → Roles</strong> and create:</p>
+<ul>
+<li><code>Admin</code> (should already exist)</li>
+<li><code>Agent</code> (should already exist)</li>
+<li><code>Customer</code> (default)</li>
+<li>Any custom roles (like <code>tier1</code>, <code>tier2</code>, etc.)</li>
+</ul>
+<h3>Step 5: Write the Sync Script</h3>
+<p>Create the script on your Zammad server:</p>
+<pre class="codehilite"><code class="language-bash">sudo nano /opt/zammad/script/sync_oidc_roles.rb
+</code></pre>
+
+<p>Here's the script (adjust the group-to-role mapping for your setup):</p>
+<pre class="codehilite"><code class="language-ruby">#!/usr/bin/env ruby
+# Sync OIDC user roles based on Keycloak groups
+
+require '/opt/zammad/config/environment'
+
+User.where(source: 'openid_connect').find_each do |user|
+  auth = user.authorizations.where(provider: 'openid_connect').first
+  next unless auth&amp;.token
+
+  require 'json'
+  require 'base64'
+
+  parts = auth.token.split('.')
+  payload = parts[1]
+  payload += '=' * (4 - payload.length % 4) if payload.length % 4 != 0
+
+  begin
+    decoded = JSON.parse(Base64.urlsafe_decode64(payload))
+    groups = decoded['groups'] || []
+
+    roles_to_assign = []
+
+    # Map Keycloak groups to Zammad roles
+    if groups.include?('/admins')
+      roles_to_assign += ['Admin', 'Agent']
+    elsif groups.include?('/support/tier3')
+      roles_to_assign += ['Agent', 'tier3']
+    elsif groups.include?('/support/tier2')
+      roles_to_assign += ['Agent', 'tier2']
+    elsif groups.include?('/support/tier1')
+      roles_to_assign += ['Agent', 'tier1']
+    else
+      roles_to_assign = ['Customer']
+    end
+
+    if roles_to_assign.any?
+      role_objects = Role.where(name: roles_to_assign.uniq)
+      current_roles = user.roles.pluck(:name)
+
+      unless (current_roles.sort == roles_to_assign.sort)
+        user.role_ids = role_objects.pluck(:id)
+        user.save!
+        puts &quot;Updated #{user.login}: #{roles_to_assign.join(', ')}&quot;
+      end
+    end
+  rescue =&gt; e
+    puts &quot;Error for #{user.login}: #{e.message}&quot;
+  end
+end
+</code></pre>
+
+<p>Make it executable:</p>
+<pre class="codehilite"><code class="language-bash">sudo chmod +x /opt/zammad/script/sync_oidc_roles.rb
+sudo chown zammad:zammad /opt/zammad/script/sync_oidc_roles.rb
+</code></pre>
+
+<h3>Step 6: Test It</h3>
+<p>Run the script manually:</p>
+<pre class="codehilite"><code class="language-bash">sudo zammad run ruby /opt/zammad/script/sync_oidc_roles.rb
+</code></pre>
+
+<p>You should see output like:</p>
+<pre class="codehilite"><code>Updated user@example.com: Agent, tier2
+Updated admin@example.com: Admin, Agent
+</code></pre>
+
+<h3>Step 7: Automate with Cron</h3>
+<p>Edit root's crontab:</p>
+<pre class="codehilite"><code class="language-bash">sudo crontab -e
+</code></pre>
+
+<p>Add this line to run the script every 5 minutes:</p>
+<pre class="codehilite"><code>*/5 * * * * /usr/bin/zammad run ruby /opt/zammad/script/sync_oidc_roles.rb &gt;&gt; /var/log/zammad/sync_roles.log 2&gt;&amp;1
+</code></pre>
+
+<p>Save and exit. Now the script runs automatically.</p>
+<h2>Things to Know</h2>
+<p><strong>JWT tokens expire:</strong> The script reads the stored token, which eventually expires. Users need to log out and back in periodically to refresh their token (and by extension, their groups). The cron job picks up changes within 5 minutes after a fresh login.</p>
+<p><strong>Group changes require re-login:</strong> If you change someone's groups in Keycloak, they won't see the change in Zammad until they log out and back in (so the token refreshes).</p>
+<p><strong>Customizing the mapping:</strong> Just edit the <code>if</code>/<code>elsif</code> logic in the script. Match it to your Keycloak group structure and Zammad role names.</p>
+<p><strong>Performance:</strong> The script loops through all OIDC users. If you have thousands of users, you might want to optimize it or run it less frequently.</p>
+<h2>Conclusion</h2>
+<p>This was one of those problems where the official integration gets you 80% of the way there, but the last 20% requires some DIY work. Once it's set up though, it works great. Users log in via SSO and automatically get the right permissions based on their groups.</p>
+<p>No more manual role assignments (which I really do not want to handle on my own).</p>
+<p>If you're running Zammad with Keycloak (or any OIDC provider that sends group claims), this approach should work for you. Just adjust the group names and role mappings to fit your setup.</p>
+<p>Thanks for reading!</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2024-2025 Maciej Wal. Built with Python and simplicity.</p>
+        </footer>
+    </div>
+</body>
+</html>
