@@ -7,21 +7,19 @@ Summary: Building automatic role assignment for Zammad using JWT tokens and a cr
 
 # Making Zammad Play Nice with Keycloak Groups
 
-I recently spent way too much time figuring out how to make Zammad automatically assign roles based on Keycloak groups. Turns out, Zammad's OIDC integration doesn't do this out of the box. Every user who logs in via SSO gets stuck with the "Customer" role, regardless of what groups they're in.
-
-This was... not ideal.
+I recently spent way too much time figuring out how to make Zammad automatically assign roles based on Keycloak groups. Turns out, Zammad's OIDC integration doesn't do this out of the box. Every user who logs in via SS (OIDC) gets stuck with the "Customer" role, regardless of what groups they're in.
 
 ## The Problem
 
-Here's the setup: Zammad for ticketing, Keycloak for identity management, OIDC to tie them together. Users can log in just fine, but Zammad has no idea if they're supposed to be an admin, an agent, or just a customer. It just defaults everyone to "Customer" and calls it a day.
+Here's the setup: Zammad for ticketing, Keycloak for identity management, OIDC to tie them together. Users can log in just fine, but Zammad has no idea if they're supposed to be an admin, an agent, or just a customer. It just defaults everyone to "Customer".
 
-I needed users in specific Keycloak groups (like `/admins` or `/support/tier2`) to automatically get the right Zammad roles. No manual clicking around in the admin panel after every new user signs in.
+I needed users in specific Keycloak groups (like `/admins` or `/support/tier2`) to automatically get the right Zammad roles. No manual clicking around in the admin panel after every new user signs in. I really didn't want to be the one doing that. I needed automation.
 
 ## Why This Matters
 
-If you're running a helpdesk or support system with tiered access (tier 1 support, tier 2, admins, etc.), you don't want to manually assign Zammad roles every time someone new logs in. You want it to just work based on your existing identity provider.
+If you're running a helpdesk or support system with tiered access (tier 1 support, tier 2, admins, etc.), you don't want to manually assign Zammad roles every time someone new logs in. You want it to just work based on your existing identity provider. So you can go do other things with your life.
 
-Keycloak already knows who's who. Zammad really really should too (Hehe, see what I did there?).
+Keycloak already knows who's who. Zammad really really should too.
 
 ## The Solution
 
@@ -101,8 +99,6 @@ This will show you the exact format of the groups. Something like:
 ```ruby
 ["/admins", "/support/tier1", "/support/tier2"]
 ```
-
-Note the format carefully - case sensitivity matters!
 
 ### Step 4: Create Zammad Roles
 
@@ -226,8 +222,6 @@ Save and exit. Now the script runs automatically.
 ## Conclusion
 
 This was one of those problems where the official integration gets you 80% of the way there, but the last 20% requires some DIY work. Once it's set up though, it works great. Users log in via SSO and automatically get the right permissions based on their groups.
-
-No more manual role assignments (which I really do not want to handle on my own).
 
 If you're running Zammad with Keycloak (or any OIDC provider that sends group claims), this approach should work for you. Just adjust the group names and role mappings to fit your setup.
 

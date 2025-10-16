@@ -7,26 +7,26 @@ Summary: Replacing Pelican with a custom static site generator
 
 # I Miss Simple Websites
 
-I rebuilt this website using a custom static site generator I wrote in Python. The whole thing is about 280 lines of code. No plugins, no themes, no config files. Just Python, Make, and Markdown.
+I ended up rebuilding this website to use a custom static site generator that I wrote in Python. The whole project ended up being about 280-300ish lines of code. Just pure Python, Make, and Markdown.
 
 ## Why?
 
-I originally built this site with [Pelican](https://getpelican.com/). Pelican is great. Very well-designed, actively maintained, and has a solid plugin ecosystem. If you're building a blog or a website, you should check it out.
+I originally built this website with [Pelican](https://getpelican.com/). At the time I was obsessed with using Python for everything. I wanted to avoid the popular static website generators and ended up finding Pelican. Pelican is great and actively maintained.
 
-But I kept thinking about geocities. Those janky personal homepages from the late 90s where you'd edit HTML in Notepad, upload it via FTP, and suddenly have a website. I really miss that directness.
+Do you remember those old geocities websites? Those super janky personal homepages from the late 90's where you'd edit HTML in Notepad (because you didn't know anything else existed)? I really miss having that directness.
 
-With Pelican, I had `pelicanconf.py`, `publishconf.py`, theme directories, and plugin folders. For a portfolio with maybe a dozen posts, it felt like overkill. I wanted something way way simpler.
+Anyway, with Pelican, I had to have `pelicanconf.py`, `publishconf.py`, theme directories, and plugin folders. For a portfolio website that sometimes sees a post, Pelican felt like complete overkill. I wanted to have something way simpler.
 
 ## Building My Own
 
-What does a static site generator actually need to do for a simple blog?
+I wanted my static website generator to do the following:
 
 1. Parse Markdown front matter
 2. Convert Markdown to HTML
 3. Inject content into a template
 4. Copy static files
 
-That's it. So I wrote `build.py`:
+So I wrote `build.py`:
 
 ```python
 #!/usr/bin/env python3
@@ -45,7 +45,7 @@ The script:
 - Generates a blog index sorted by date
 - Copies images and static files
 
-No configuration files. If I want to change something, I edit `build.py` or the template. Pure python.
+No configuration files. If I want to change something, I edit `build.py` or the template.
 
 ## The Template
 
@@ -61,7 +61,7 @@ CSS is lives in ```content/templates/styles.css```. The whole template is about 
 
 ## The Makefile
 
-This was the first time I wrote my own Makefile. I actually enjoyed learning about this. I didn't know you could use Makefiles like this. 
+This was the first time that I wrote my own Makefile. I actually enjoyed learning about this. I didn't know you could use Makefiles like this. 
 
 ```makefile
 build:
@@ -111,7 +111,5 @@ When something breaks, I can just read `build.py`. No digging through any framew
 Use Pelican if you're building a blog. It's a really cool Python static site generator.
 
 But this project wasn't about finding a "better" solution. It was pure nostalgia. I wanted that geocities feeling of just making something without learning a framework first. I want the internet to be fun and owned by individuals again (ironic since I'm hosting this on GitHub Pages).
-
-You can check out the source on my GitHub. The entire generator fits in one file.
 
 Thank you so much for reading!
