@@ -1,3 +1,27 @@
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/Inter-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/Inter-Italic.woff2') format('woff2');
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +29,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 17px;
     line-height: 1.7;
     color: #1d1d1f;
