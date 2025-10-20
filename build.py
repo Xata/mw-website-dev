@@ -225,6 +225,9 @@ def main():
     if (content_dir / 'img').exists():
         shutil.copytree(content_dir / 'img', output_dir / 'img')
 
+    if (content_dir / 'fonts').exists():
+        shutil.copytree(content_dir / 'fonts', output_dir / 'fonts')
+
     if (content_dir / 'extra').exists():
         for item in (content_dir / 'extra').iterdir():
             # Handle security.txt specially - goes to .well-known/

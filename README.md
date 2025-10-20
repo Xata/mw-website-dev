@@ -39,12 +39,17 @@ content/
 ├── articles/     # Blog posts
 ├── pages/        # Static pages
 ├── img/          # Images
-└── extra/        # Static assets
+├── fonts/        # Fonts included
+└── extra/        # Static asset
 
 templates/        # HTML templates
 output/           # Generated site
 build.py          # Build script
 ```
+
+## Fonts
+
+This project uses [Inter](https://github.com/rsms/inter) by Rasmus Andersson, licensed under the SIL Open Font License 1.1. See [content/fonts/LICENSE.txt](content/fonts/LICENSE.txt).
 
 ## License
 
