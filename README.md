@@ -3,8 +3,12 @@
 This repository contains the source code for my portfolio website at [mwal.dev](https://mwal.dev).
 
 ![GitHub top language](https://img.shields.io/github/languages/top/Xata/mw-website-dev?style=for-the-badge)
-![GitHub Last Commit](https://img.shields.io/github/last-commit/Xata/mw-website-dev?style=for-the-badge)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Xata/mw-website-dev?style=for-the-badge)
+![GitHub Last Commit](https://img.shields.io/github/last-commit/Xata/mw-website-dev?style=for-the-badge)
+![Build Status](https://img.shields.io/github/actions/workflow/status/Xata/mw-website-dev/deploy.yml?style=for-the-badge)
+![Website](https://img.shields.io/website?down_message=offline&style=for-the-badge&up_message=online&url=https%3A%2F%2Fmwal.dev)
+![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)
+![IE Incompatible](https://img.shields.io/badge/IE-incompatible-red?style=for-the-badge)
 
 ## About
 
