@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suricata log enrichment for Fluent Bit using Lua - Maciej's Dev Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Maciej's Dev Blog</h1>
+            <nav>
+                <a href="/index.html">Home</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/resume.html">Resume</a>
+                <a href="https://github.com/Xata" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/maciejwal/" target="_blank">LinkedIn</a>
+            </nav>
+        </header>
+
+        <main class="content">
+            <div class="article-meta">Posted on October 23, 2025</div>
+<h1>Suricata log enrichment for Fluent Bit using Lua</h1>
+<p>At work, I've been using Fluent Bit to collect logs and ship them to our OpenSearch cluster. This has been working great! However, I needed to normalize some of the Suricata alerts for our student analysts. This was done using Fluent Bit's Lua filters. </p>
+<p>You can find the example in the repository here: <a href="https://github.com/Xata/fluent-bit-suricata-enrichment">fluent-bit-suricata-enrichment</a></p>
+<h2>What does the script do?</h2>
+<p>The example Lua script will:</p>
+<ul>
+<li><strong>Normalize severity alerts</strong>: Converts Suricata's numeric severity (1/2/3) to descriptive levels (critical/high/medium/low/) for humans to read.</li>
+<li><strong>Category Mapping</strong>: Gives an example way to change verbose Suricata categories to short names.</li>
+<li><strong>Critical Alert Flagging</strong>: Adds <code>alert.is_critical</code> boolean for priority-based alerting based on Suricata's numeric severity (1/2/3).</li>
+<li><strong>ECS Compatibility</strong>: Adds <code>event.category</code> and <code>event.severity</code> fields compatible with Elastic Common Schema. </li>
+</ul>
+<h2>Example Transformation</h2>
+<p>Basically this is what is happening to the <code>eve.json</code> logs:</p>
+<p><strong>Before:</strong></p>
+<pre class="codehilite"><code class="language-json">{&quot;timestamp&quot;:&quot;2024-10-23T14:34:20.789012+0000&quot;,&quot;flow_id&quot;:123456791,&quot;event_type&quot;:&quot;alert&quot;,&quot;src_ip&quot;:&quot;172.16.5.10&quot;,&quot;src_port&quot;:22,&quot;dest_ip&quot;:&quot;203.0.113.99&quot;,&quot;dest_port&quot;:55123,&quot;proto&quot;:&quot;TCP&quot;,&quot;alert&quot;:{&quot;action&quot;:&quot;allowed&quot;,&quot;gid&quot;:1,&quot;signature_id&quot;:2024003,&quot;signature&quot;:&quot;ET SCAN Potential SSH Scan&quot;,&quot;category&quot;:&quot;Network Scan&quot;,&quot;severity&quot;:3}}
+</code></pre>
+
+<p><strong>After:</strong></p>
+<pre class="codehilite"><code class="language-json">{
+  &quot;event_type&quot;: &quot;alert&quot;,
+  &quot;alert&quot;: {
+    &quot;signature&quot;: &quot;ET SCAN Potential SSH Scan&quot;,
+    &quot;category&quot;: &quot;Network Scan&quot;,
+    &quot;severity&quot;: 3,
+    &quot;is_critical&quot;: false,
+    &quot;readable_category&quot;: &quot;malware&quot;
+  },
+  &quot;event&quot;: {
+    &quot;severity&quot;: &quot;medium&quot;,
+    &quot;category&quot;: &quot;reconnaissance&quot;
+  }
+}
+</code></pre>
+
+<p>Notice the new fields:</p>
+<ul>
+<li><code>alert.is_critical: false</code>: Not a critical alert (severity 3)</li>
+<li><code>alert.readable_category: "reconnaissance"</code>: Mapped from "Network Scan"</li>
+<li><code>event.severity: "medium"</code>: Human-readable severity</li>
+<li><code>event.category: "reconnaissance"</code>: ECS-compatible categorization</li>
+</ul>
+<h2>Impact</h2>
+<p>This enrichment happens in real-time as logs flow through Fluent Bit, with minimal overhead. Our student analysts can now:</p>
+<ul>
+<li>Quickly identify critical alerts without memorizing numeric codes</li>
+<li>Filter and search using standardized category names</li>
+<li>Build better dashboards and alerts in OpenSearch</li>
+</ul>
+<h2>Link to the repository</h2>
+<p>You can find the example in the repository here: <a href="https://github.com/Xata/fluent-bit-suricata-enrichment">fluent-bit-suricata-enrichment</a></p>
+<h2>Contributing</h2>
+<p>This project is open source and welcomes contributions! If you have additional Suricata category mappings or improvements, check out the <a href="https://github.com/Xata/fluent-bit-suricata-enrichment/blob/main/CONTRIBUTING.md">contributing guidelines</a>.</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2024-2025 Maciej Wal. Built with Python.</p>
+        </footer>
+    </div>
+</body>
+</html>
