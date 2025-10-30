@@ -46,14 +46,20 @@ Linux · FreeBSD · Windows Server · Active Directory
 ### Cybersecurity Platform Architect
 **The Cybersecurity Center, MSU Denver** · Denver, CO · *October 2023 - Present*
 
-**Production Infrastructure & Cloud Engineering**
+**Centurion Secured / C-MUTE Platform**
 
-- Engineered a multi-tenant DigitalOcean infrastructure (14 partners) with full IaC (OpenTofu + Terraform).  
-- Architected dual-VPC Kubernetes clusters using Helm, ingress-nginx, and cert-manager for TLS automation.  
-- Created deployment pipelines with a GitOps-driven model, shrinking provisioning to seconds.  
-- Partnered with faculty to introduce DevOps-driven CI/CD pipelines supporting cybersecurity lab environments.  
-- Designed SOC observability architecture ingesting logs from 1,000+ clients under a zero-trust VPN (WireGuard).  
-- Mentored a 3-member DevOps student team; taught Kubernetes and cybersecurity workshops for 50+ learners.   
+- Architected and deployed production SOC platform serving 100+ volunteer analysts monitoring network security for 12+ communities across Colorado.
+- Built cloud-native Kubernetes infrastructure on DigitalOcean with full GitOps deployment using ArgoCD, enabling self-healing infrastructure and zero-downtime updates.
+- Deployed highly-available OpenSearch cluster with Keycloak OIDC authentication, internal DNS, and automated secret rotation for enterprise-grade security.
+- Engineered disaster recovery architecture allowing complete infrastructure rebuild while preserving analyst data and configurations.
+- Designed distributed edge computing architecture deploying mini-PCs on customer networks running Suricata IDS with Fluent Bit log shipping over WireGuard VPN.
+- Implemented multi-tenant DigitalOcean infrastructure (14 partners) with full IaC using OpenTofu and Terraform for reproducible deployments.
+- Created dual-VPC Kubernetes clusters using Helm, ingress-nginx, and cert-manager for automated TLS certificate management.
+
+**DevOps & Education**
+
+- Partnered with faculty to introduce DevOps-driven CI/CD pipelines supporting cybersecurity lab environments.
+- Mentored a 3-member DevOps student team; taught Kubernetes and cybersecurity workshops for 50+ learners.
 - Speaker at DevOpsDays Denver 2025 on collector infrastructure design in education and SOC pipelines ([watch talk](https://www.youtube.com/live/V-21TELKoqk?si=xeZ5Tm9Cnb4f-nn5&t=11449) - note: audio quality affected by microphone issues)
 
 ### Technical Product Specialist
@@ -114,9 +120,15 @@ Linux · FreeBSD · Windows Server · Active Directory
 
 ### [Ubiquitous Cube Game](https://github.com/Xata/ubiquitous-cube-game)
 
-**Python · OpenGL · NumPy · ModernGL** 
+**Python · OpenGL · NumPy · ModernGL**
 
 Cross-platform Minecraft-inspired voxel engine built in Python, demonstrating performance optimization and systems programming skills applicable to infrastructure engineering.
+
+### [SWBF2 v1.3 Patch Linux Patcher](https://github.com/Xata/swbf2-v13-linux-patcher)
+
+**Bash · Linux Gaming · Automation**
+
+Automated patch installation script enabling Windows-only Star Wars Battlefront II (2005) mods to work on Linux systems, using xdelta3 binary patching and 7z archives.
 
 ### Open Source Contributions
 
@@ -124,8 +136,9 @@ Cross-platform Minecraft-inspired voxel engine built in Python, demonstrating pe
 
 - Corrected JSON code-block rendering in OpenSearch docs. [PR #11217](https://github.com/opensearch-project/documentation-website/pull/11217)  
 
-**Fluent-Bit Docs** 
+**Fluent-Bit Docs**
 
+- Created comprehensive documentation for GPU metrics input plugin including configuration examples and supported options for AMD GPU monitoring. [PR #2112](https://github.com/fluent/fluent-bit-docs/pull/2112)
 - Added missing backtick in documentation. [PR #2101](https://github.com/fluent/fluent-bit-docs/pull/2101)
 - Fixed error in Debian installation documentation preventing successful package installation. [PR #2028](https://github.com/fluent/fluent-bit-docs/pull/2028)
 
