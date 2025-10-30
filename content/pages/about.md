@@ -23,16 +23,3 @@ You'll find links to my GitHub and my LinkedIn profile:
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Xata)
 
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/maciejwal/)
-
-## Technologies
-The following was used to create this website:
-
-[![Pelican](https://img.shields.io/static/v1?style=for-the-badge&message=pelican&color=14A0C4&logo=Pelican&logoColor=FFFFFF&label=)](https://github.com/getpelican/pelican)
-
-[![pelican-plugins](https://img.shields.io/static/v1?style=for-the-badge&message=pelican-plugins&color=14A0C4&logo=GitHub&logoColor=FFFFFF&label=)](https://github.com/getpelican/pelican-plugins/tree/master)
-
-[![pelican-themes](https://img.shields.io/static/v1?style=for-the-badge&message=pelican-themes&color=14A0C4&logo=GitHub&logoColor=FFFFFF&label=)](https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3)
-
-[![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](https://www.python.org/)
-
-[![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)](https://daringfireball.net/projects/markdown/)
