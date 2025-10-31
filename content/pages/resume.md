@@ -1,6 +1,6 @@
 title: Resume
 date: 2024-03-24
-modified: 2025-10-19
+modified: 2025-10-30
 status: published
 
 # Resume
@@ -88,11 +88,13 @@ Linux · FreeBSD · Windows Server · Active Directory
 ### Technology Specialist
 **Cherry Creek School District** · Aurora, CO · *January 2019 - August 2020*
 
-- Automated OS imaging and deployment for 2,000+ systems using SCCM + Intune + PDQ Deploy.  
-- Discovered and remediated a critical Active Directory privilege escalation flaw.  
+- Automated OS imaging and deployment for 2,000+ systems using SCCM + Intune + PDQ Deploy.
+- Discovered and remediated a critical Active Directory privilege escalation flaw.
 - Created a custom Access database that replaced spreadsheet-based asset tracking, improving accuracy.
 
-### Computer Specialist
+**Previous Roles:** Computer Specialist, Stillwater Public Schools (2017-2018) | Repair Technician, uBreakiFix (2015-2017)
+
+<!--### Computer Specialist
 **Stillwater Public Schools** · Stillwater, OK · *September 2017 - December 2018*
 
 - Managed district-wide wireless infrastructure, provisioning and configuring Ruckus access points across multiple school sites
@@ -105,7 +107,7 @@ Linux · FreeBSD · Windows Server · Active Directory
 **uBreakiFix** · Denver, CO · *2015 - 2017*
 
 - Performed component-level repair and microsoldering on Apple MacBook motherboards and mobile devices
-
+-->
 ---
 
 ## Open Source & Projects
