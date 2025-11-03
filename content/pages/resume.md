@@ -13,8 +13,6 @@ Platform Engineer · Denver, CO · Open to Remote or On-Site (US & EU)
 
 Platform Engineer specializing in cloud automation, Kubernetes orchestration, and observability-driven infrastructure. Proven record deploying secure, scalable systems for universities and enterprises. Passionate about bridging DevOps and security through IaC, GitOps, and open-source innovation.
 
-**Work Authorization:** US Citizen · EU Work Authorization
-
 **Languages:** English (Native) · Polish (Intermediate)
 
 ---
@@ -162,14 +160,14 @@ Associate of Applied Science in Computer Information Systems · 2016
 
 ## Certifications
 
-**GIAC Global Industrial Cyber Security Professional (GICSP)** · December 2024
-[View Credential](https://www.credly.com/badges/5b7a467f-78d9-4113-b2d8-ef1554016ff9)
-
 **CompTIA PenTest+** · February 2025
 [View Credential](https://www.credly.com/badges/e17b96f6-d8e1-4bbc-a72b-0accb7a39709)
 
 **CompTIA CySA+** · February 2025
 [View Credential](https://www.credly.com/badges/91a25c38-06a6-4029-bad8-74009e5bec6a)
+
+**GIAC Global Industrial Cyber Security Professional (GICSP)** · December 2024
+[View Credential](https://www.credly.com/badges/5b7a467f-78d9-4113-b2d8-ef1554016ff9)
 
 **Nvidia Deep Learning Fundamentals** · May 2024
 [View Credential](https://learn.nvidia.com/certificates?id=pKPfpdozTNehK71oz4H60g)
@@ -181,5 +179,3 @@ Associate of Applied Science in Computer Information Systems · 2016
 I'm seeking a platform engineering, DevOps, or cloud infrastructure role where I can continue building production systems. I'm particularly interested in positions involving Kubernetes, infrastructure automation, security tooling, or observability platforms.
 
 **Location:** Open to remote positions or relocation to Chicago (US), Detroit (US) or Warsaw, Gdańsk, Kraków (Poland)
-
-**Work Authorization:** US Citizen with EU work authorization
