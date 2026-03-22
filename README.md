@@ -174,5 +174,3 @@ Thank you for checking this out!
 ## License
 
 See [LICENSE](LICENSE) for details.
-
-
