@@ -11,7 +11,7 @@ Platform Engineer · Denver, CO · Open to Remote or On-Site (US & EU)
 
 ## Summary
 
-Platform Engineer operating a multi-tenant Kubernetes platform serving 14 organizations with 300GB+ daily log ingestion. 3+ years designing production infrastructure, CI/CD pipelines (ArgoCD, GitOps), and observability systems (OpenTelemetry, Dynatrace) on DigitalOcean and AWS. Background in cybersecurity operations (GICSP, CySA+) with hands-on experience in zero-trust networking and SOC architecture.
+Platform Engineer designing and operating a multi-tenant Kubernetes platform serving 14 organizations with 300GB+ daily log ingestion. 3+ years building production infrastructure, CI/CD pipelines (ArgoCD, GitOps), and observability systems (OpenTelemetry, Dynatrace) on DigitalOcean and AWS. Built zero-trust networking, SOC platform architecture, and internal developer tooling from the ground up. GICSP, CySA+, PenTest+ certified.
 
 **Languages:** English (Native) · Polish (B1)
 
@@ -47,52 +47,57 @@ Linux · FreeBSD · Windows Server · Active Directory
 ### Cybersecurity Platform Architect
 **The Cybersecurity Center, MSU Denver** · Denver, CO · *October 2023 - Present*
 
-- Designed and deployed a multi-tenant Kubernetes platform at a public US university, serving 14 partner organizations and ingesting 300GB+ daily.
-- Built infrastructure with OpenTofu (Terraform), Kubernetes, cert-manager, and ArgoCD on DigitalOcean.
-- Migrated cluster ingress from ingress-nginx to Kubernetes Gateway API, improving multi-tenant traffic isolation.
-- Deployed OpenSearch, Keycloak (SSO/RBAC), and Zammad as GitOps-managed SOC services on Kubernetes.
-- Implemented zero-trust connectivity via WireGuard VPN, backhauling partner traffic to central infrastructure.
-- Designed distributed edge computing architecture deploying mini-PCs on customer networks running Suricata IDS with Fluent Bit log shipping over WireGuard VPN.
-- Developed a Rust API (Actix Web) serving on-cluster ML models to generate and evaluate analyst training exercises.
-- Engineered disaster recovery architecture allowing complete infrastructure rebuild while preserving analyst data and configurations.
-- Built internal developer platform with OpenTelemetry observability; mentored student engineers on monitoring.
-- Partnered with faculty to introduce DevOps-driven CI/CD pipelines supporting cybersecurity lab environments.
-- Led monthly hands-on DevOps and cloud workshops for students.
-- Speaker at DevOpsDays Denver 2025 on collector infrastructure design in education and SOC pipelines ([watch talk](https://www.youtube.com/live/V-21TELKoqk?si=xeZ5Tm9Cnb4f-nn5&t=11449))
+**The Cybersecurity Center, MSU Denver** · Denver, CO · *October 2023 - Present*
+
+- Designed and deployed a SOC platform at a public US university, serving 14 partners and ingesting 300GB+ daily
+- Built multi-tenant DigitalOcean infrastructure with OpenTofu (Terraform), Kubernetes, cert-manager, and ArgoCD
+- Migrated cluster ingress from ingress-nginx to Kubernetes Gateway API, improving multi-tenant traffic isolation
+- Deployed OpenSearch, Keycloak (SSO/RBAC), and Zammad as GitOps-managed SOC services on Kubernetes
+- Implemented zero-trust connectivity via WireGuard VPN, backhauling partner traffic to central infrastructure
+- Developed a Rust API (Actix Web) serving on-cluster ML models to generate and evaluate analyst training exercises
+- Built internal developer platform with OpenTelemetry observability; mentored student engineers on monitoring
+- Led monthly hands-on DevOps and cloud workshops for students
 
 ### Technical Product Specialist (PDP 368)
 **Dynatrace** · Denver, CO · *June 2023 - December 2023*
 
-- Delivered observability consulting to 7+ enterprise clients across Kubernetes (EKS), AWS, and CI/CD pipelines.
-- Troubleshot Dynatrace integrations with distributed microservices, CloudWatch, and Jenkins/GitHub Actions.
-- Created custom dashboards and alerting frameworks for real-time application performance monitoring.
-- Built containerized demos integrating Dynatrace into distributed microservices.
+- Delivered observability consulting to 7+ enterprise clients across Kubernetes (EKS), AWS, and CI/CD pipelines
+- Troubleshot Dynatrace integrations with distributed microservices, CloudWatch, and Jenkins/GitHub Actions
+- Built custom dashboards and alerting frameworks for real-time application performance monitoring
 
 ### Student Web Content Designer
 **Classroom to Career Hub, MSU Denver** · Denver, CO · *July 2021 - March 2022*
 
-- Automated website migration using custom Python web scraper.
-- Refactored JavaScript calendar plugins to work with Wordpress.
+- Automated website migration with a custom Python web scraper
+- Refactored JavaScript calendar plugins for Wordpress integration
 
 ### Desktop Support Technician
 **Frontier Airlines** · Denver, CO · *February 2021 - July 2021*
 
-- Served as sole Tier 1 Desktop Support Technician for corporate office, onboarding 20+ employees weekly and resolving escalated help desk tickets.
-- Developed PowerShell scripts to automate user account management and repetitive administrative tasks.
-- Created golden image for Microsoft Surface deployment, standardizing corporate workstation configurations.
+- Operated as sole Tier 1 support engineer for corporate office, onboarding 20+ employees weekly and resolving escalated tickets
+- Automated user account provisioning and administrative workflows with PowerShell
+- Standardized corporate workstation deployments with a golden Microsoft Surface image
 
 ### Technology Specialist
 **Cherry Creek School District** · Aurora, CO · *January 2019 - August 2020*
 
-- Automated OS imaging and deployment for 2,000+ systems using SCCM, Microsoft Intune, and PDQ Deploy.
-- Discovered and remediated a critical Active Directory privilege escalation vulnerability.
-- Built custom asset tracking system replacing manual processes, improving inventory accuracy.
+- Automated OS imaging and deployment across 2,000+ systems using SCCM, Microsoft Intune, and PDQ Deploy
+- Identified and remediated a critical Active Directory privilege escalation vulnerability
+- Built custom asset tracking system, replacing manual inventory processes
 
 ### Computer Specialist
 **Stillwater Public Schools** · Stillwater, OK · *2017 - 2018*
 
 ### Repair Technician
 **uBreakiFix** · Lone Tree, CO · *2015 - 2017*
+
+---
+
+## Speaking
+
+**DevOpsDays Denver 2025** · Denver, CO · *August 2025*
+
+- Presented on collector infrastructure design in education and SOC pipelines ([watch talk](https://www.youtube.com/live/V-21TELKoqk?si=xeZ5Tm9Cnb4f-nn5&t=11449))
 
 ---
 
