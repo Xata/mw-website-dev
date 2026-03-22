@@ -12,10 +12,7 @@ This repository contains the source code for my portfolio website at [mwal.dev](
 
 ## About
 
-A personal portfolio website showcasing my projects and resume. The site includes:
-
-- **Blog**: Technical guides and posts about technologies I work with
-- **Resume**: Professional experience and background
+Personal portfolio site with a blog and resume page. ~200 lines of Python, no frameworks.
 
 ## Development
 
@@ -162,25 +159,16 @@ The script:
 - Home page: `output/index.html`
 - 404 page: `output/404.html`
 
-### Customizing Things
+### Customizing
+Edit ```build.py```. The functions are commented and the whole file is readable in about 10 minutes.
 
-The script is intentionally simple. Want to change how something works? Just edit `build.py`:
-- Home page redirect: Check out `build_home_page()`
-- 404 page content: Look at `build_404_page()`
-- Blog index layout: Edit `build_blog_index()`
-- Add more Markdown features: Update the `markdown.Markdown()` calls
+### Limitations
 
-All the functions have detailed comments explaining what they do. It's about 200 lines total. You can read the whole thing in like 10 minutes.
+There's no RSS, no tag pages, no pagination, and no plugins. For a portfolio site I don't need any of that. If you do, you probably want Pelican or Hugo instead.
 
-### What You're Giving Up
+### Why
 
-No RSS feeds. No tag pages. No pagination. No plugin ecosystem.
-
-For a personal portfolio site, none of that really matters. If you need those features, use a real static site generator like Pelican or Hugo.
-
-### Why I Built This
-
-I wanted that geocities feeling of just making something without learning a framework first. Sometimes it's nice to just have one Python file that does exactly what you need and nothing else.
+I wanted the geocities feeling of just making a website without learning a framework first.
 
 Thank you for checking this out!
 
