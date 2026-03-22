@@ -92,7 +92,7 @@ Linux · FreeBSD · Windows Server · Active Directory
 **Stillwater Public Schools** · Stillwater, OK · *2017 - 2018*
 
 ### Repair Technician
-**uBreakiFix** · *2015 - 2017*
+**uBreakiFix** · Lone Tree, CO · *2015 - 2017*
 
 ---
 
@@ -136,10 +136,10 @@ Automated patch installation script enabling Windows-only Star Wars Battlefront 
 ## Education
 
 **Metropolitan State University of Denver**
-Bachelor of Science in Computer Information Systems · 2023
+Bachelor of Science in Computer Information Systems · *2019 - 2023 (Graduated)*
 
 **Community College of Denver**
-Associate of Applied Science in Computer Information Systems · 2016
+Associate of Applied Science in Computer Information Systems · *2015 - 2016 (Graduated)*
 
 ---
 
