@@ -12,7 +12,7 @@ This repository contains the source code for my portfolio website at [mwal.dev](
 
 ## About
 
-Personal portfolio site with a blog and resume page. ~200 lines of Python and no bulky frameworks with features I don't need.
+Personal portfolio site with a blog and resume page. ~200 lines of Python and no bulky frameworks.
 
 ## Development
 
