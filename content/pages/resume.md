@@ -1,6 +1,6 @@
 title: Resume
 date: 2024-03-24
-modified: 2025-10-30
+modified: 2026-03-22
 status: published
 
 # Resume
@@ -11,30 +11,33 @@ Platform Engineer · Denver, CO · Open to Remote or On-Site (US & EU)
 
 ## Summary
 
-Platform Engineer specializing in cloud automation, Kubernetes orchestration, and observability-driven infrastructure. Proven record deploying secure, scalable systems for universities and enterprises. Passionate about bridging DevOps and security through IaC, GitOps, and open-source innovation.
+Platform Engineer operating a multi-tenant Kubernetes platform serving 14 organizations with 300GB+ daily log ingestion. 3+ years designing production infrastructure, CI/CD pipelines (ArgoCD, GitOps), and observability systems (OpenTelemetry, Dynatrace) on DigitalOcean and AWS. Background in cybersecurity operations (GICSP, CySA+) with hands-on experience in zero-trust networking and SOC architecture.
 
-**Languages:** English (Native) · Polish (Intermediate)
+**Languages:** English (Native) · Polish (B1)
 
 ---
 
 ## Technical Skills
 
-**Languages:** 
-Python · Bash · PowerShell  
+**Languages:**
+Python · Rust · Bash · PowerShell
 
-**Cloud & Infra:** 
-AWS · DigitalOcean · Terraform/OpenTofu · GitOps · Kubernetes (DOKS/k3s) · Docker · Helm  
+**Cloud & Infra:**
+AWS · Azure · DigitalOcean · OpenTofu (Terraform) · GitOps · Kubernetes (DOKS/k3s) · Docker · Podman · KubeVirt · Helm · ArgoCD
 
-**Security:** 
-SIEM (OpenSearch, ELK) · Suricata · Keycloak (OIDC) · Vulnerability Assessment · Zero-Trust Networks  
+**Networking:**
+Gateway API · Envoy Gateway · CoreDNS · cert-manager · ingress-nginx
 
-**Monitoring:** 
-Dynatrace · OpenTelemetry · Fluent-Bit · Syslog · Auditd  
+**Security:**
+Splunk · Suricata · Keycloak (OIDC) · WireGuard · SIEM · Zero-Trust Networks · Vulnerability Assessment
 
-**Databases:** 
-PostgreSQL · MySQL · OpenSearch  
+**Monitoring:**
+Dynatrace · OpenTelemetry · Fluent-Bit · Syslog · Auditd
 
-**Operating Systems:** 
+**Databases:**
+PostgreSQL · MySQL · OpenSearch
+
+**Operating Systems:**
 Linux · FreeBSD · Windows Server · Active Directory
 
 ---
@@ -44,85 +47,68 @@ Linux · FreeBSD · Windows Server · Active Directory
 ### Cybersecurity Platform Architect
 **The Cybersecurity Center, MSU Denver** · Denver, CO · *October 2023 - Present*
 
-**Centurion Secured / C-MUTE Platform**
-
-- Architected and deployed production SOC platform serving 100+ volunteer analysts monitoring network security for 12+ communities across Colorado.
-- Built cloud-native Kubernetes infrastructure on DigitalOcean with full GitOps deployment using ArgoCD, enabling self-healing infrastructure and zero-downtime updates.
-- Deployed highly-available OpenSearch cluster with Keycloak OIDC authentication, internal DNS, and automated secret rotation for enterprise-grade security.
-- Engineered disaster recovery architecture allowing complete infrastructure rebuild while preserving analyst data and configurations.
+- Designed and deployed a multi-tenant Kubernetes platform at a public US university, serving 14 partner organizations and ingesting 300GB+ daily.
+- Built infrastructure with OpenTofu (Terraform), Kubernetes, cert-manager, and ArgoCD on DigitalOcean.
+- Migrated cluster ingress from ingress-nginx to Kubernetes Gateway API, improving multi-tenant traffic isolation.
+- Deployed OpenSearch, Keycloak (SSO/RBAC), and Zammad as GitOps-managed SOC services on Kubernetes.
+- Implemented zero-trust connectivity via WireGuard VPN, backhauling partner traffic to central infrastructure.
 - Designed distributed edge computing architecture deploying mini-PCs on customer networks running Suricata IDS with Fluent Bit log shipping over WireGuard VPN.
-- Implemented multi-tenant DigitalOcean infrastructure (14 partners) with full IaC using OpenTofu and Terraform for reproducible deployments.
-- Created dual-VPC Kubernetes clusters using Helm, ingress-nginx, and cert-manager for automated TLS certificate management.
-
-**DevOps & Education**
-
+- Developed a Rust API (Actix Web) serving on-cluster ML models to generate and evaluate analyst training exercises.
+- Engineered disaster recovery architecture allowing complete infrastructure rebuild while preserving analyst data and configurations.
+- Built internal developer platform with OpenTelemetry observability; mentored student engineers on monitoring.
 - Partnered with faculty to introduce DevOps-driven CI/CD pipelines supporting cybersecurity lab environments.
-- Mentored a 3-member DevOps student team; taught Kubernetes and cybersecurity workshops for 50+ learners.
-- Speaker at DevOpsDays Denver 2025 on collector infrastructure design in education and SOC pipelines ([watch talk](https://www.youtube.com/live/V-21TELKoqk?si=xeZ5Tm9Cnb4f-nn5&t=11449) - note: audio quality affected by microphone issues)
+- Led monthly hands-on DevOps and cloud workshops for students.
+- Speaker at DevOpsDays Denver 2025 on collector infrastructure design in education and SOC pipelines ([watch talk](https://www.youtube.com/live/V-21TELKoqk?si=xeZ5Tm9Cnb4f-nn5&t=11449))
 
-### Technical Product Specialist
+### Technical Product Specialist (PDP 368)
 **Dynatrace** · Denver, CO · *June 2023 - December 2023*
 
-- Supported 7+ enterprise clients across CI/CD observability pipelines.  
-- Created custom dashboards and alerting frameworks for real-time telemetry.  
-- Completed Dynatrace’s technical training program (PDP 368) and built an internal multiplayer CI/CD showcase.  
-- Built containerized demos integrating Dynatrace into distributed microservices. 
+- Delivered observability consulting to 7+ enterprise clients across Kubernetes (EKS), AWS, and CI/CD pipelines.
+- Troubleshot Dynatrace integrations with distributed microservices, CloudWatch, and Jenkins/GitHub Actions.
+- Created custom dashboards and alerting frameworks for real-time application performance monitoring.
+- Built containerized demos integrating Dynatrace into distributed microservices.
 
 ### Student Web Content Designer
 **Classroom to Career Hub, MSU Denver** · Denver, CO · *July 2021 - March 2022*
 
-- Automated website migration using Python web scrapers, saving hours of manual labor.  
-- Refactored JavaScript calendar plugins for speed, accessibility, and cross-platform compatibility.  
+- Automated website migration using custom Python web scraper.
+- Refactored JavaScript calendar plugins to work with Wordpress.
 
 ### Desktop Support Technician
 **Frontier Airlines** · Denver, CO · *February 2021 - July 2021*
 
-- Served as sole Tier 1 Desktop Support Technician for corporate office, onboarding 20+ employees weekly and resolving escalated help desk tickets
-- Developed PowerShell scripts to automate user account management and repetitive administrative tasks
-- Created golden image for Microsoft Surface deployment, standardizing corporate workstation configurations
-- Installed and configured meeting room camera systems, integrating with Microsoft InTune for Outlook room reservation functionality
-- Supported organization's transition from remote work to in-office operations while completing full-time university coursework
+- Served as sole Tier 1 Desktop Support Technician for corporate office, onboarding 20+ employees weekly and resolving escalated help desk tickets.
+- Developed PowerShell scripts to automate user account management and repetitive administrative tasks.
+- Created golden image for Microsoft Surface deployment, standardizing corporate workstation configurations.
 
 ### Technology Specialist
 **Cherry Creek School District** · Aurora, CO · *January 2019 - August 2020*
 
-- Automated OS imaging and deployment for 2,000+ systems using SCCM + Intune + PDQ Deploy.
-- Discovered and remediated a critical Active Directory privilege escalation flaw.
-- Created a custom Access database that replaced spreadsheet-based asset tracking, improving accuracy.
+- Automated OS imaging and deployment for 2,000+ systems using SCCM, Microsoft Intune, and PDQ Deploy.
+- Discovered and remediated a critical Active Directory privilege escalation vulnerability.
+- Built custom asset tracking system replacing manual processes, improving inventory accuracy.
 
-**Previous Roles:** Computer Specialist, Stillwater Public Schools (2017-2018) | Repair Technician, uBreakiFix (2015-2017)
-
-<!--### Computer Specialist
-**Stillwater Public Schools** · Stillwater, OK · *September 2017 - December 2018*
-
-- Managed district-wide wireless infrastructure, provisioning and configuring Ruckus access points across multiple school sites
-- Configured Dell and Extreme network switches for VLANs, port security, and network segmentation
-- Discovered and remediated AAA authentication vulnerability in Ruckus wireless controller that allowed students to access staff network
-- Conducted wireless site surveys and repositioned access points across district facilities to support district-wide 1:1 Chromebook deployment
-- Provided on-site IT support for Stillwater High School, Lincoln Alternative Academy, and Will Rogers Elementary School (Title I)
+### Computer Specialist
+**Stillwater Public Schools** · Stillwater, OK · *2017 - 2018*
 
 ### Repair Technician
-**uBreakiFix** · Denver, CO · *2015 - 2017*
+**uBreakiFix** · *2015 - 2017*
 
-- Performed component-level repair and microsoldering on Apple MacBook motherboards and mobile devices
--->
 ---
 
 ## Open Source & Projects
 
 ### Home Lab
 
-**Kubernetes · Python · Helm · LLM Agents · MMORPG Preservation**  
+**Kubernetes · Helm · ArgoCD · Prometheus**
 
-- Built an on-prem Kubernetes cluster for distributed workloads, including AI agents and game automation.  
-- Deployed AI agents controlling SWGemu private server game bots and syncing through LLM coordination.  
-- Built scalable AI pipelines enabling NPC-style behavior, merging DevOps and simulation automation.  
+- Self-hosted multi-node Kubernetes cluster for testing infrastructure patterns and running personal workloads.
 
 ### [Ubiquitous Cube Game](https://github.com/Xata/ubiquitous-cube-game)
 
 **Python · OpenGL · NumPy · ModernGL**
 
-Cross-platform Minecraft-inspired voxel engine built in Python, demonstrating performance optimization and systems programming skills applicable to infrastructure engineering.
+A voxel engine with procedural terrain generation in Python + OpenGL.
 
 ### [SWBF2 v1.3 Patch Linux Patcher](https://github.com/Xata/swbf2-v13-linux-patcher)
 
@@ -132,19 +118,18 @@ Automated patch installation script enabling Windows-only Star Wars Battlefront 
 
 ### Open Source Contributions
 
-**OpenSearch Docs** 
+**Fluent Bit (CNCF)**
 
-- Corrected JSON code-block rendering in OpenSearch docs. [PR #11217](https://github.com/opensearch-project/documentation-website/pull/11217)  
+- Created documentation for the GPU metrics plugin. [PR #2112](https://github.com/fluent/fluent-bit-docs/pull/2112)
+- Fixed sources list URL referencing Ubuntu instead of Debian. [PR #2028](https://github.com/fluent/fluent-bit-docs/pull/2028)
 
-**Fluent-Bit Docs**
+**OpenSearch**
 
-- Created comprehensive documentation for GPU metrics input plugin including configuration examples and supported options for AMD GPU monitoring. [PR #2112](https://github.com/fluent/fluent-bit-docs/pull/2112)
-- Added missing backtick in documentation. [PR #2101](https://github.com/fluent/fluent-bit-docs/pull/2101)
-- Fixed error in Debian installation documentation preventing successful package installation. [PR #2028](https://github.com/fluent/fluent-bit-docs/pull/2028)
+- Corrected JSON code-block rendering. [PR #11217](https://github.com/opensearch-project/documentation-website/pull/11217)
 
-**OpenRCT2** 
+**OpenRCT2**
 
-- Refactored legacy diagnostic code in C++ game engine, replacing monolithic function with object-oriented DiagBlockedSegments class. [PR #20961](https://github.com/OpenRCT2/OpenRCT2/pull/20961)
+- Replaced monolithic function with object-oriented DiagBlockedSegments class. [PR #20961](https://github.com/OpenRCT2/OpenRCT2/pull/20961)
 
 ---
 
@@ -171,11 +156,3 @@ Associate of Applied Science in Computer Information Systems · 2016
 
 **Nvidia Deep Learning Fundamentals** · May 2024
 [View Credential](https://learn.nvidia.com/certificates?id=pKPfpdozTNehK71oz4H60g)
-
----
-
-## What I'm Looking For
-
-I'm seeking a platform engineering, DevOps, or cloud infrastructure role where I can continue building production systems. I'm particularly interested in positions involving Kubernetes, infrastructure automation, security tooling, or observability platforms.
-
-**Location:** Open to remote positions or relocation to Chicago (US), Detroit (US) or Warsaw, Gdańsk, Kraków (Poland)
