@@ -45,7 +45,6 @@ Linux · FreeBSD · Windows Server · Active Directory
 ## Professional Experience
 
 ### Cybersecurity Platform Architect
-**The Cybersecurity Center, MSU Denver** · Denver, CO · *October 2023 - Present*
 
 **The Cybersecurity Center, MSU Denver** · Denver, CO · *October 2023 - Present*
 
