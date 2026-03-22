@@ -12,7 +12,7 @@ This repository contains the source code for my portfolio website at [mwal.dev](
 
 ## About
 
-Personal portfolio site with a blog and resume page. ~200 lines of Python, no frameworks.
+Personal portfolio site with a blog and resume page. ~200 lines of Python and no bulky frameworks with features I don't need.
 
 ## Development
 
@@ -56,8 +56,6 @@ This project uses [Inter](https://github.com/rsms/inter) by Rasmus Andersson, li
 
 So you want to use this for your own website? Cool! Here's how to get started.
 
-The whole thing is about 200 lines of Python. No config files, no plugin directories, just one script that converts Markdown to HTML. If you want to change something, you edit `build.py`. That's it.
-
 ### What You'll Need
 
 First, install the only dependency:
@@ -84,7 +82,7 @@ your-site/
 
 ### The Template
 
-Your template file (`templates/base.html`) needs exactly two placeholders:
+Your template file (`templates/base.html`) needs two placeholders:
 ```html
 <!DOCTYPE html>
 <html>
@@ -98,7 +96,7 @@ Your template file (`templates/base.html`) needs exactly two placeholders:
 </html>
 ```
 
-That's it. The script replaces `{{ title }}` with your page title and `{{ content }}` with your HTML. No Jinja2, no fancy templating system. Just find-and-replace.
+The script replaces `{{ title }}` with your page title and `{{ content }}` with your HTML.
 
 ### Writing Content
 
@@ -160,6 +158,7 @@ The script:
 - 404 page: `output/404.html`
 
 ### Customizing
+
 Edit ```build.py```. The functions are commented and the whole file is readable in about 10 minutes.
 
 ### Limitations
