@@ -5,7 +5,9 @@ status: published
 
 # Resume
 
-Platform Engineer · Denver, CO · Open to Remote or On-Site (Denver/Boulder, CO or Warsaw/Krakow, PL)
+Platform Engineer · Denver, CO · Open to Remote or On-Site
+
+**Preferred Locations:** Denver, CO · Boulder, CO · Chicago, IL · Poland (Warsaw, Kraków, Trójmiasto, Wrocław)
 
 ---
 
