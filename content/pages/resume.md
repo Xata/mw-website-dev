@@ -59,12 +59,14 @@ Linux · FreeBSD · Windows Server · Active Directory
 - Built internal developer platform with OpenTelemetry observability; mentored student engineers on monitoring
 - Led monthly hands-on DevOps and cloud workshops for students
 
-### Technical Product Specialist (PDP 368)
+### Technical Product Specialist
 **Dynatrace** · Denver, CO · *June 2023 - December 2023*
 
-- Delivered observability consulting to 7+ enterprise clients across Kubernetes (EKS), AWS, and CI/CD pipelines
-- Troubleshot Dynatrace integrations with distributed microservices, CloudWatch, and Jenkins/GitHub Actions
-- Built custom dashboards and alerting frameworks for real-time application performance monitoring
+- Completed Dynatrace's 6-month Professional Development Program (PDP 368); earned Dynatrace Associate certification and Autonomous Cloud Endorsement
+- Supported enterprise clients in configuring Dynatrace across AWS (CloudWatch, Lambda, Fargate), Azure, hybrid Windows Server deployments, and Kubernetes environments
+- Guided customers through CI/CD pipeline monitoring, real user monitoring (RUM), and platform troubleshooting
+- Built custom dashboards and alerting frameworks for application performance monitoring
+- Demoed a Jenkins CI/CD pipeline deploying a containerized multiplayer Snake game to Kubernetes, instrumented with Dynatrace
 
 ### Student Web Content Designer
 **Classroom to Career Hub, MSU Denver** · Denver, CO · *July 2021 - March 2022*
