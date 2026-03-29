@@ -1,11 +1,11 @@
 title: Resume
 date: 2024-03-24
-modified: 2026-03-22
+modified: 2026-03-29
 status: published
 
 # Resume
 
-Platform Engineer · Denver, CO · Open to Remote or On-Site (US & EU)
+Platform Engineer · Denver, CO · Open to Remote or On-Site (Denver/Boulder, CO or Warsaw/Krakow, PL)
 
 ---
 
