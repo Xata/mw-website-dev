@@ -71,6 +71,22 @@ header::after {
                 inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
+hr {
+    border: none;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(to right, 
+        rgba(147,206,222,0) 0%, 
+        rgba(147,206,222,1) 15%, 
+        rgba(117,189,209,1) 50%, 
+        rgba(73,165,191,1) 85%, 
+        rgba(73,165,191,0) 100%
+    );
+    box-shadow: 0 1px 4px rgba(73, 165, 191, 0.35), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    margin: 32px 0;
+}
+
 h1 {
     font-size: 40px;
     margin-bottom: 8px;
@@ -234,6 +250,15 @@ ul:not(.article-list), ol {
 
 li {
     margin-bottom: 8px;
+}
+
+footer {
+    margin-top: 80px;
+    padding-top: 30px;
+    font-size: 15px;
+    color: #86868b;
+    position: relative;
+    border-top: none;
 }
 
 footer::before {
