@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Maciej's Dev Blog</title>
+    <title>Crow SBOM Generation Documentation - Maciej's Dev Blog</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
 
@@ -66,86 +66,14 @@
         </header>
 
         <main class="content">
-            <h1>Blog</h1>
-<ul class="article-list">
-    <li>
-        <span class="article-date">2026-04-03</span>
-        <a href="articles/crow_sbom_docs.html" class="article-title">Crow SBOM Generation Documentation</a>
-    </li>
-    <li>
-        <span class="article-date">2026-03-30</span>
-        <a href="articles/suricata_gitops_ml.html" class="article-title">A GitOps Architecture for ML-Driven Suricata Rule Generation</a>
-    </li>
-    <li>
-        <span class="article-date">2026-03-29</span>
-        <a href="articles/frutiger_aero.html" class="article-title">Adding Frutiger Aero Vibes to My Personal Site</a>
-    </li>
-    <li>
-        <span class="article-date">2026-03-22</span>
-        <a href="articles/loney_zero_trust.html" class="article-title">Zero Trust is a Lonely Road</a>
-    </li>
-    <li>
-        <span class="article-date">2025-11-03</span>
-        <a href="articles/fluentbit_gpu_metrics_plugin_doc.html" class="article-title">Fluent Bit's GPU metrics plugin</a>
-    </li>
-    <li>
-        <span class="article-date">2025-10-23</span>
-        <a href="articles/fluent-bit_suricata_lua.html" class="article-title">Suricata log enrichment for Fluent Bit using Lua</a>
-    </li>
-    <li>
-        <span class="article-date">2025-10-09</span>
-        <a href="articles/orchestration_wars.html" class="article-title">The Orchestration Wars (Or: When Everyone Had Their Own Container Thing)</a>
-    </li>
-    <li>
-        <span class="article-date">2025-10-09</span>
-        <a href="articles/zammad_oidc_role_mapping.html" class="article-title">Making Zammad Play Nice with Keycloak Groups</a>
-    </li>
-    <li>
-        <span class="article-date">2025-10-08</span>
-        <a href="articles/dropping_pelican.html" class="article-title">I Miss Simple Websites</a>
-    </li>
-    <li>
-        <span class="article-date">2025-10-07</span>
-        <a href="articles/cube_game_technical_deep_dive.html" class="article-title">Technical Deep Dive: Optimizing Ubiquitous Cube Game</a>
-    </li>
-    <li>
-        <span class="article-date">2025-05-14</span>
-        <a href="articles/ubiquitous_cube_game_python_update.html" class="article-title">Ubiquitous Cube Game Update</a>
-    </li>
-    <li>
-        <span class="article-date">2025-02-21</span>
-        <a href="articles/comptia_certifications.html" class="article-title">Two More CompTIA Certifications...</a>
-    </li>
-    <li>
-        <span class="article-date">2025-01-10</span>
-        <a href="articles/gicsp_certification.html" class="article-title">GICSP Achieved</a>
-    </li>
-    <li>
-        <span class="article-date">2024-05-12</span>
-        <a href="articles/o3de_macos.html" class="article-title">Running O3DE on macOS</a>
-    </li>
-    <li>
-        <span class="article-date">2024-04-22</span>
-        <a href="articles/qemu_on_windows.html" class="article-title">Create an Ubuntu VM on Windows 11 with QEMU</a>
-    </li>
-    <li>
-        <span class="article-date">2024-04-01</span>
-        <a href="articles/cc_certification.html" class="article-title">Getting Another Certification</a>
-    </li>
-    <li>
-        <span class="article-date">2024-03-25</span>
-        <a href="articles/cube_game_intro.html" class="article-title">Introducing Ubiquitous Cube Game</a>
-    </li>
-    <li>
-        <span class="article-date">2024-03-24</span>
-        <a href="articles/first_post.html" class="article-title">First Post</a>
-    </li>
-    <li>
-        <span class="article-date">2024-03-24</span>
-        <a href="articles/vehicle_manager_retrospect.html" class="article-title">Retrospective: vehiclemanager</a>
-    </li>
+            <div class="article-meta">Posted on April 03, 2026</div>
+<p>The Axios supply chain attack this week was a good reminder that knowing what's in your dependency tree isn't optional. A North Korean threat actor hijacked the lead maintainer's npm account and pushed two malicious versions of a library with 100M+ weekly downloads. The poisoned packages dropped a cross-platform RAT and self-destructed after execution.</p>
+<p>I've been using Crow (C++ micro web framework) for some personal projects, and after the Axios news I started automating SBOM generation in my CI pipelines with GitHub Actions. Turns out Crow already had SBOM generation built into its CMake config, but it was completely undocumented. There was an open issue from last August with no takers, so I wrote the guide and got it merged.</p>
+<h2>Links</h2>
+<ul>
+<li>Link to the pull request: https://github.com/CrowCpp/Crow/pull/1172</li>
+<li>Docs page link: https://crowcpp.org/master/guides/sbom/</li>
 </ul>
-
         </main>
 
         <footer>
