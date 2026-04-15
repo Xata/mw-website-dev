@@ -22,6 +22,15 @@
     src: url('../fonts/Inter-Italic.woff2') format('woff2');
 }
 
+@font-face {
+    font-family: 'Inter Fallback';
+    src: local('Helvetica Neue'), local('Arial');
+    size-adjust: 107%;
+    ascent-override: 90%;
+    descent-override: 22%;
+    line-gap-override: 0%;
+}
+
 ::selection {
     background: rgba(117, 189, 209, 0.3);
     color: inherit;
@@ -34,7 +43,7 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 17px;
     line-height: 1.7;
     color: #1d1d1f;
