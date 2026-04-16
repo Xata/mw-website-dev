@@ -320,8 +320,12 @@ img {
         0 12px 40px rgba(0, 0, 0, 0.1);
 }
 
+/* Frosted glass code blocks */
 pre {
-    background: #f5f5f7;
+    background: rgba(220, 235, 245, 0.5);
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 12px;
     padding: 20px;
     overflow-x: auto;
@@ -330,14 +334,14 @@ pre {
     font-size: 14px;
     line-height: 1.6;
     box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.8) inset,
-        0 4px 16px rgba(0, 0, 0, 0.06);
+        0 1px 0 rgba(255, 255, 255, 0.9) inset,
+        0 4px 16px rgba(73, 165, 191, 0.1);
 }
 
 code {
     font-family: "SF Mono", Monaco, "Cascadia Code", "Courier New", monospace;
     font-size: 15px;
-    background: #f5f5f7;
+    background: rgba(220, 235, 245, 0.4);
     padding: 3px 6px;
     border-radius: 4px;
     color: #c7254e;
@@ -349,13 +353,20 @@ pre code {
     color: #1d1d1f;
 }
 
+/* Glass callout blockquote */
 blockquote {
     border-left: none;
-    padding-left: 20px;
+    padding: 20px 20px 20px 24px;
     margin: 24px 0;
-    color: #6e6e73;
+    color: #4a6670;
     font-style: italic;
     position: relative;
+    background: rgba(200, 230, 245, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.7) inset,
+        0 2px 8px rgba(73, 165, 191, 0.08);
 }
 
 blockquote::before {
@@ -365,7 +376,7 @@ blockquote::before {
     top: 0;
     bottom: 0;
     width: 4px;
-    border-radius: 2px;
+    border-radius: 2px 0 0 2px;
     background: linear-gradient(to bottom,
             rgba(147, 206, 222, 1) 0%,
             rgba(117, 189, 209, 1) 41%,
@@ -514,19 +525,24 @@ footer::before {
         border-bottom-color: #424245;
     }
 
+    /* Dark frosted glass code blocks */
     pre {
-        background: #1d1d1f;
+        background: rgba(30, 40, 50, 0.6);
+        backdrop-filter: blur(12px) saturate(150%);
+        -webkit-backdrop-filter: blur(12px) saturate(150%);
+        border: 1px solid rgba(73, 165, 191, 0.15);
         box-shadow:
             0 1px 0 rgba(255, 255, 255, 0.05) inset,
             0 4px 16px rgba(0, 0, 0, 0.3);
     }
 
     code {
-        background: #1d1d1f;
+        background: rgba(30, 40, 50, 0.5);
         color: #ff6b9d;
     }
 
     pre code {
+        background: none;
         color: #f5f5f7;
     }
 
@@ -536,8 +552,14 @@ footer::before {
             0 12px 40px rgba(0, 0, 0, 0.5);
     }
 
+    /* Dark glass callout blockquote */
     blockquote {
         color: #a1a1a6;
+        background: rgba(30, 45, 55, 0.4);
+        border-color: rgba(73, 165, 191, 0.15);
+        box-shadow:
+            0 1px 0 rgba(255, 255, 255, 0.04) inset,
+            0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
     blockquote::before {
