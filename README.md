@@ -169,7 +169,7 @@ There's no RSS, no tag pages, no pagination, and no plugins. For a portfolio sit
 
 I wanted the geocities feeling of just making a website without learning a framework first.
 
-Thank you for checking this out!
+Thank you for checking this out!!
 
 ## License
 
